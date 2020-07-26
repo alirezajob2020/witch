@@ -1,0 +1,6 @@
+git+ssh://git@git.carrene.com/Carrene/nanohttp.git 
+git+ssh://git@git.carrene.com/Carrene/bddrest.git 
+git+ssh://git@git.carrene.com/Carrene/restfulpy.git 
+git+ssh://git@git.carrene.com/Carrene/cas-common.git
+git+ssh://git@git.carrene.com/Carrene/wsgi-auditor.git
+
