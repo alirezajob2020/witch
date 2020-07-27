@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 
 # reading package version (same way the sqlalchemy does)
-with open(join(dirname(__file__), 'dolphin', '__init__.py')) as v_file:
+with open(join(dirname(__file__), 'witch', '__init__.py')) as v_file:
     package_version = re.compile('.*__version__ = \'(.*?)\'', re.S).\
         match(v_file.read()).group(1)
 
@@ -19,7 +19,7 @@ dependencies = [
 
 
 setup(
-    name='dolphin',
+    name='witch',
     version=package_version,
     packages=find_packages(),
     install_requires=dependencies,

@@ -11,11 +11,10 @@ from .cli import EmailSubCommand, CheckDailyreportSubCommand, \
     CheckItemBoardingSubCommand, MetadataSubCommand, AuditlogSubCommand
 from .controllers.root import Root
 
+__version__ = '0.1'
 
-__version__ = '0.117.0a63'
 
-
-class Dolphin(Application):
+class Witch(Application):
     __authenticator__ = Authenticator()
     __configuration__ = '''
       db:
@@ -92,7 +91,7 @@ class Dolphin(Application):
 
    '''
 
-    def __init__(self, application_name='dolphin', root=Root()):
+    def __init__(self, application_name='witch', root=Root()):
         super().__init__(
             application_name,
             root=root,
@@ -100,11 +99,11 @@ class Dolphin(Application):
             version=__version__
         )
 
-    def insert_basedata(self, *args): # pragma: no cover
+    def insert_basedata(self, *args):  # pragma: no cover
         basedata.insert()
 
-    def insert_mockup(self, *args): # pragma: no cover
-        mockup.insert( )
+    def insert_mockup(self, *args):  # pragma: no cover
+        mockup.insert()
 
     def get_cli_arguments(self):
         return [
@@ -129,5 +128,4 @@ class Dolphin(Application):
         super().initialize_orm(cls, engine)
 
 
-dolphin = Dolphin()
-
+witch = Witch()

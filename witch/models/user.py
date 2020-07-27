@@ -17,11 +17,11 @@ class User(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
         minimum=1,
     )
     name = Field(
-    
+        String,
     )
-    full_name = Field(
-        
+    fullname = Field(
+        String,
     )
     email = Field(
-	
-    ) 
+        String,
+    )
