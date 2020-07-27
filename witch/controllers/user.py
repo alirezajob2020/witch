@@ -1,7 +1,17 @@
+from nanohttp import json, Static
 from restfulpy.controllers import ModelRestController
-
-FORM_WHITELISTS_STRING = ', '.join(FORM_WHITELIST)
 
 
 class UserController(ModelRestController):
-    pass
+
+    @json
+    def create(self):
+        return "user is created"
+
+    @json
+    def add(self):
+        return "user is added"
+
+    @json
+    def delete(self):
+        return "user is deleted"

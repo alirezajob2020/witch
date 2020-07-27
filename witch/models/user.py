@@ -1,7 +1,7 @@
 from restfulpy.orm import Field, DeclarativeBase, OrderingMixin, \
     FilteringMixin, PaginationMixin, relationship
 from sqlalchemy import Integer, Unicode, DateTime, ForeignKey, Enum, exists, \
-    and_, UniqueConstraint
+    and_, UniqueConstraint, String
 
 
 class User(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
@@ -17,7 +17,7 @@ class User(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
         minimum=1,
     )
     name = Field(
-        String,
+        String(100),
     )
     fullname = Field(
         String,

@@ -1,3 +1,3 @@
-import .user from User
-import .target from Target
-import .message from Message
+from .user import User
+from .target import Target
+from .message import Message

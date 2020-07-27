@@ -43,8 +43,8 @@ class StatusRoomAlreadyExists(HTTPKnownStatus):
 
 class StatusMaximumSubscribeAtRoom(HTTPKnownStatus):
     def __init__(self, maximum_room_subscription):
-        self.status = f'716 Maximum {maximum_room_subscription} Rooms To '\
-            f'Subscribe At A Time'
+        self.status = f'716 Maximum {maximum_room_subscription} Rooms To ' \
+                      f'Subscribe At A Time'
 
 
 class MemberAlreadyAddedToTarget(HTTPKnownStatus):
@@ -134,7 +134,7 @@ class StatusIssueNotFound(HTTPKnownStatus):
         # This + between strings are decided by PyLover.
         # DO NOT DO THAT ANYWHERE
         self.status = f'605 Issue Not Found' + \
-            (f': {issue_id}' if issue_id is not None else '')
+                      (f': {issue_id}' if issue_id is not None else '')
 
 
 class StatusMemberNotFound(HTTPKnownStatus):
@@ -212,13 +212,13 @@ class StatusInvalidReleaseIdType(HTTPKnownStatus):
 class StatusInvalidStagesValue(HTTPKnownStatus):
     def __init__(self, stages_values):
         self.status = f'705 Invalid stage value, only one of ' \
-            f'"{", ".join(stages_values)}" will be accepted'
+                      f'"{", ".join(stages_values)}" will be accepted'
 
 
 class StatusInvalidStatusValue(HTTPKnownStatus):
     def __init__(self, statuses_values):
         self.status = f'705 Invalid status value, only one of ' \
-            f'"{", ".join(statuses_values)}" will be accepted'
+                      f'"{", ".join(statuses_values)}" will be accepted'
 
 
 class StatusProjectNotFound(HTTPKnownStatus):
@@ -261,8 +261,8 @@ class StatusEventTypeIdIsNull(HTTPKnownStatus):
 
 class StatusMaxLenghtForDescription(HTTPKnownStatus):
     def __init__(self, lenght):
-        self.status = f'703 At Most {lenght} Characters Are Valid For '\
-            'Description'
+        self.status = f'703 At Most {lenght} Characters Are Valid For ' \
+                      'Description'
 
 
 class StatusTitleNotInForm(HTTPKnownStatus):
@@ -462,7 +462,7 @@ class StatusInvalidDaysType(HTTPKnownStatus):
 
 
 class StatusInvalidDueDateFormat(HTTPKnownStatus):
-    status ='701 Invalid Due Date Format'
+    status = '701 Invalid Due Date Format'
 
 
 class StatusManagerReferenceIdNotInForm(HTTPKnownStatus):
@@ -528,13 +528,13 @@ class StatusPriorityNotInForm(HTTPKnownStatus):
 class StatusInvalidPriority(HTTPKnownStatus):
     def __init__(self, issue_priorities):
         self.status = f'767 Invalid priority, only one of ' \
-            f'"{", ".join(issue_priorities)}" will be accepted'
+                      f'"{", ".join(issue_priorities)}" will be accepted'
 
 
 class StatusInvalidKind(HTTPKnownStatus):
     def __init__(self, issue_kinds):
         self.status = f'717 Invalid kind, only one of ' \
-            f'"{", ".join(issue_kinds)}" will be accepted'
+                      f'"{", ".join(issue_kinds)}" will be accepted'
 
 
 class StatusInvalidHoursType(HTTPKnownStatus):
@@ -735,7 +735,7 @@ class StatusAddMemberToPublicGroup(HTTPKnownStatus):
 
 class StatusMemberHasItemRelatedToSpeciality(HTTPKnownStatus):
     status = '400 Removing Speciality of a Member who has an Item ' \
-        'Related to that Speciality is not Allowed'
+             'Related to that Speciality is not Allowed'
 
 
 class StatusUpdateSpecialtySkill(HTTPKnownStatus):
@@ -820,7 +820,7 @@ class StatusRepetitiveAuditlog(HTTPKnownStatus):
 
 class StatusStringLengthInvalid(HTTPKnownStatus):
     status = '400 String Length Must Be Greater Than 1 Characters' \
-        ' and Less than 256 Character'
+             ' and Less than 256 Character'
 
 
 class StatusTheMemberHasNotThisSkill(HTTPKnownStatus):

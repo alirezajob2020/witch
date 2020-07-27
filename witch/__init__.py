@@ -5,17 +5,16 @@ from nanohttp import settings
 from restfulpy import Application
 from sqlalchemy_media import StoreManager, FileSystemStore
 
-from . import basedata, mockup
-from .authentication import Authenticator
-from .cli import EmailSubCommand, CheckDailyreportSubCommand, \
-    CheckItemBoardingSubCommand, MetadataSubCommand, AuditlogSubCommand
+# from . import basedata, mockup
+# from .authentication import Authenticator
+# from .cli import EmailSubCommand, CheckDailyreportSubCommand, \
+#     CheckItemBoardingSubCommand, MetadataSubCommand, AuditlogSubCommand
 from .controllers.root import Root
 
 __version__ = '0.1'
 
 
 class Witch(Application):
-    __authenticator__ = Authenticator()
     __configuration__ = '''
       db:
         url: postgresql://postgres:postgres@localhost/dolphin_dev
@@ -98,21 +97,6 @@ class Witch(Application):
             root_path=dirname(__file__),
             version=__version__
         )
-
-    def insert_basedata(self, *args):  # pragma: no cover
-        basedata.insert()
-
-    def insert_mockup(self, *args):  # pragma: no cover
-        mockup.insert()
-
-    def get_cli_arguments(self):
-        return [
-            EmailSubCommand,
-            CheckDailyreportSubCommand,
-            CheckItemBoardingSubCommand,
-            MetadataSubCommand,
-            AuditlogSubCommand,
-        ]
 
     @classmethod
     def initialize_orm(cls, engine=None):

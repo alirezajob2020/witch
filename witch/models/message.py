@@ -1,7 +1,7 @@
 from restfulpy.orm import Field, DeclarativeBase, OrderingMixin, \
-    FilteringMixin, PaginationMixin, relationship, column_property
+    FilteringMixin, PaginationMixin, relationship
 from sqlalchemy import Integer, Unicode, DateTime, ForeignKey, Enum, exists, \
-    and_, UniqueConstraint, select
+    and_, UniqueConstraint, select, String
 
 from .target import Target
 
@@ -29,7 +29,7 @@ class Message(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
         Integer,
         ForeignKey('target.id'),
     )
-    target_title = column_property(
-        select([Target.title])
-            .where(Target.id == id)
-    )
+    # target_title = column_property(
+    #     select([Target.title])
+    #         .where(Target.id == id)
+    # )

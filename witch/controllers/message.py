@@ -1,7 +1,17 @@
+from nanohttp import json, Static
 from restfulpy.controllers import ModelRestController
-
-FORM_WHITELISTS_STRING = ', '.join(FORM_WHITELIST)
 
 
 class MessageController(ModelRestController):
-    pass
+
+    @json
+    def create(self):
+        return "new message is created"
+
+    @json
+    def add(self):
+        return "new message is added"
+
+    @json
+    def delete(self):
+        return "message is deleted"

@@ -1,7 +1,7 @@
 from restfulpy.orm import Field, DeclarativeBase, OrderingMixin, \
     FilteringMixin, PaginationMixin, relationship
 from sqlalchemy import Integer, Unicode, DateTime, ForeignKey, Enum, exists, \
-    and_, UniqueConstraint
+    and_, UniqueConstraint, String
 
 from .user import User
 
@@ -32,7 +32,7 @@ class Target(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
     )
 
 
-class TargetMember(Base):
+class TargetMember(DeclarativeBase):
     __tablename__ = 'target_member'
 
     user_id = Field(

@@ -6,7 +6,7 @@ from restfulpy.controllers import RootController, RestController, \
 
 import witch
 from .user import UserController
-from .target import  TargetController
+from .target import TargetController
 from .message import MessageController
 
 here = abspath(dirname(__file__))
@@ -15,9 +15,17 @@ attachment_storage = abspath(join(here, '../..', 'data/assets'))
 
 class Apiv1(RestController, JSONPatchControllerMixin):
 
+    users = UserController()
+    targets = TargetController()
+    messages = MessageController()
+
     @json
     def version(self):
         return dict(version=witch.__version__)
+
+    @json
+    def alitk(self):
+        return "alireza tavakoli"
 
 
 class Root(RootController):
