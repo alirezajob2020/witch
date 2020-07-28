@@ -1,0 +1,15 @@
+base_call:
+  json:
+    endDate: '2020-07-28T15:01:28.237590'
+    repeat: never
+    startDate: '2020-07-28T15:01:28.237569'
+    title: target1
+  response:
+    headers:
+    - 'Content-Type: application/json; charset=utf-8'
+    json: target is deleted
+    status: 200 OK
+  title: Delete a target
+  url: /apiv1/targets
+  verb: DELETE
+calls: []

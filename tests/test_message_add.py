@@ -5,21 +5,21 @@ from bddrest import status, response, when, given
 from .helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMessage(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
         pass
 
     def test_add(self):
-        title = 'Event1'
+        title = 'Message1'
         repeat = 'never'
         start_date = datetime.datetime.now().isoformat()
         end_date = datetime.datetime.now().isoformat()
 
         with self.given(
-                'Adding an event',
-                '/apiv1/users',
+                'Adding a message',
+                '/apiv1/messages',
                 'ADD',
                 json=dict(
                     title=title,

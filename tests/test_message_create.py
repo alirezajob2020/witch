@@ -5,22 +5,22 @@ from bddrest import status, response, when, given
 from .helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMessage(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
         pass
 
-    def test_add(self):
-        title = 'Event1'
+    def test_create(self):
+        title = 'Message1'
         repeat = 'never'
         start_date = datetime.datetime.now().isoformat()
         end_date = datetime.datetime.now().isoformat()
 
         with self.given(
-                'Adding an event',
-                '/apiv1/users',
-                'ADD',
+                'Create a message',
+                '/apiv1/messages',
+                'CREATE',
                 json=dict(
                     title=title,
                     startDate=start_date,
@@ -28,5 +28,4 @@ class TestUser(LocalApplicationTestCase):
                     repeat=repeat,
                 ),
         ):
-
             assert status == 200

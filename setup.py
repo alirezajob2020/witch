@@ -26,7 +26,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'dolphin = dolphin:dolphin.cli_main'
+            'witch = witch:witch.cli_main'
         ]
     }
 )

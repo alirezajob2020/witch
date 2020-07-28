@@ -19,7 +19,7 @@ def callback(audit_logs):
 
 
 class LocalApplicationTestCase(ApplicableTestCase):
-    __application__ = Witch
+    __application_factory__ = Witch
     __story_directory__ = path.join(DATA_DIRECTORY, 'stories')
     __api_documentation_directory__ = path.join(DATA_DIRECTORY, 'markdown')
 

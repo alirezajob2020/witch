@@ -6,7 +6,6 @@ from sqlalchemy import Integer, Unicode, DateTime, ForeignKey, Enum, exists, \
 from .user import User
 
 
-
 class Target(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
     __tablename__ = 'target'
 

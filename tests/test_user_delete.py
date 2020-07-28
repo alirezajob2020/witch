@@ -11,16 +11,16 @@ class TestUser(LocalApplicationTestCase):
     def mockup(cls):
         pass
 
-    def test_add(self):
+    def test_delete(self):
         title = 'Event1'
         repeat = 'never'
         start_date = datetime.datetime.now().isoformat()
         end_date = datetime.datetime.now().isoformat()
 
         with self.given(
-                'Adding an event',
+                'Delete an event',
                 '/apiv1/users',
-                'ADD',
+                'DELETE',
                 json=dict(
                     title=title,
                     startDate=start_date,

@@ -1,12 +1,25 @@
-from nanohttp import json, Static
+from nanohttp import json, HTTPNotFound, int_or_notfound, context
 from restfulpy.controllers import ModelRestController
+from restfulpy.orm import DBSession, commit
+from sqlalchemy import exists, and_, or_
+
+from witch.models import User
 
 
 class UserController(ModelRestController):
 
     @json
     def create(self):
-        return "user is created"
+        user1 = User(
+            name="alireza",
+            fullname='tavakoli',
+            email='alitk@msn.com',
+        )
+
+        DBSession.add(user1)
+        DBSession.commit()
+
+        # return user1
 
     @json
     def add(self):
@@ -15,3 +28,7 @@ class UserController(ModelRestController):
     @json
     def delete(self):
         return "user is deleted"
+
+    @json
+    def get(self):
+        pass

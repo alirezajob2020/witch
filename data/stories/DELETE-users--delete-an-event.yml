@@ -1,0 +1,15 @@
+base_call:
+  json:
+    endDate: '2020-07-28T15:01:30.159018'
+    repeat: never
+    startDate: '2020-07-28T15:01:30.158996'
+    title: Event1
+  response:
+    headers:
+    - 'Content-Type: application/json; charset=utf-8'
+    json: user is deleted
+    status: 200 OK
+  title: Delete an event
+  url: /apiv1/users
+  verb: DELETE
+calls: []

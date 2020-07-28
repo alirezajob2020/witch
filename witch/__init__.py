@@ -17,8 +17,8 @@ __version__ = '0.1'
 class Witch(Application):
     __configuration__ = '''
       db:
-        url: postgresql://postgres:postgres@localhost/dolphin_dev
-        test_url: postgresql://postgres:postgres@localhost/dolphin_test
+        url: postgresql://postgres:postgres@localhost/witch_dev
+        test_url: postgresql://postgres:postgres@localhost/witch_test
         administrative_url: postgresql://postgres:postgres@localhost/postgres
 
       migration:
@@ -40,7 +40,7 @@ class Witch(Application):
         handlers:
           backend_handler:
             type: file
-            filename: /tmp/dolphin-backends.log
+            filename: /tmp/witch-backends.log
 
       oauth:
         secret: A1dFVpz4w/qyym+HeXKWYmm6Ocj4X5ZNv1JQ7kgHBEk=\n

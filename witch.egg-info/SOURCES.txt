@@ -1,5 +1,15 @@
 setup.py
 tests/__init__.py
+tests/helpers.py
+tests/test_message_add.py
+tests/test_message_create.py
+tests/test_message_delete.py
+tests/test_target_add.py
+tests/test_target_create.py
+tests/test_target_delete.py
+tests/test_user_add.py
+tests/test_user_create.py
+tests/test_user_delete.py
 witch/__init__.py
 witch/exceptions.py
 witch.egg-info/PKG-INFO
