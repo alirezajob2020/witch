@@ -19,8 +19,6 @@ class UserController(ModelRestController):
         DBSession.add(user1)
         DBSession.commit()
 
-        # return user1
-
     @json
     def add(self):
         return "user is added"
