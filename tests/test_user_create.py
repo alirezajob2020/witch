@@ -13,7 +13,6 @@ class TestUser(LocalApplicationTestCase):
 
     def test_create(self):
         title = 'Event1'
-        repeat = 'never'
         start_date = datetime.datetime.now().isoformat()
         end_date = datetime.datetime.now().isoformat()
 
@@ -25,7 +24,6 @@ class TestUser(LocalApplicationTestCase):
                     title=title,
                     startDate=start_date,
                     endDate=end_date,
-                    repeat=repeat,
                 ),
         ):
 

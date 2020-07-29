@@ -22,13 +22,12 @@ class UserController(ModelRestController):
         return user1
 
     @json
-    def add(self):
-        return "user is added"
+    def get(self, id):
+        user1 = DBSession.query(User) \
+            .filter(User.id == id).one_or_none()
+
+        return user1
 
     @json
     def delete(self):
-        return "user is deleted"
-
-    @json
-    def get(self):
         pass

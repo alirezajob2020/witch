@@ -7,14 +7,14 @@
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
 title | ? | ? | ? | Event1
-startDate | ? | ? | ? | 2020-07-29T11:27:53.295039
-endDate | ? | ? | ? | 2020-07-29T11:27:53.295061
+startDate | ? | ? | ? | 2020-07-29T11:41:52.690265
+endDate | ? | ? | ? | 2020-07-29T11:41:52.690275
 repeat | ? | ? | ? | never
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "Event1", "startDate": "2020-07-29T11:27:53.295039", "endDate": "2020-07-29T11:27:53.295061", "repeat": "never"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "Event1", "startDate": "2020-07-29T11:41:52.690265", "endDate": "2020-07-29T11:41:52.690275", "repeat": "never"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 200 OK
@@ -25,10 +25,10 @@ Content-Type: application/json
 
 ```json
 {
+    "email":"alitk@msn.com",
     "fullname":"tavakoli",
     "id":1,
-    "name":"alireza",
-    "email":"alitk@msn.com"
+    "name":"alireza"
 }
 ```
 

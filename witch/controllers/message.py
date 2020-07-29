@@ -6,12 +6,8 @@ class MessageController(ModelRestController):
 
     @json
     def create(self):
-        return "new message is created"
-
-    @json
-    def add(self):
-        return "new message is added"
+        pass
 
     @json
     def delete(self):
-        return "message is deleted"
+        pass
