@@ -7,14 +7,14 @@
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
 title | ? | ? | ? | target1
-startDate | ? | ? | ? | 2020-07-28T15:01:27.718811
-endDate | ? | ? | ? | 2020-07-28T15:01:27.718819
+startDate | ? | ? | ? | 2020-07-29T11:27:51.479218
+endDate | ? | ? | ? | 2020-07-29T11:27:51.479229
 repeat | ? | ? | ? | never
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "target1", "startDate": "2020-07-28T15:01:27.718811", "endDate": "2020-07-28T15:01:27.718819", "repeat": "never"}' -- "$URL/apiv1/targets?"
+curl -X CREATE --data '{"title": "target1", "startDate": "2020-07-29T11:27:51.479218", "endDate": "2020-07-29T11:27:51.479229", "repeat": "never"}' -- "$URL/apiv1/targets?"
 ```
 
 ### Response: 200 OK

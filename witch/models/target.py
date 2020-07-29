@@ -4,6 +4,7 @@ from sqlalchemy import Integer, Unicode, DateTime, ForeignKey, Enum, exists, \
     and_, UniqueConstraint, String
 
 from .user import User
+from .message import Message
 
 
 class Target(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):

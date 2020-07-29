@@ -1,14 +1,17 @@
 base_call:
   json:
-    endDate: '2020-07-28T15:01:29.557671'
+    endDate: '2020-07-29T11:27:53.295061'
     repeat: never
-    startDate: '2020-07-28T15:01:29.557650'
+    startDate: '2020-07-29T11:27:53.295039'
     title: Event1
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
     json:
-      <built-in function id>: 2
+      email: alitk@msn.com
+      fullname: tavakoli
+      id: 1
+      name: alireza
     status: 200 OK
   title: Create an event
   url: /apiv1/users

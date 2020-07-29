@@ -3,7 +3,7 @@ from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
 from sqlalchemy import exists, and_, or_
 
-from witch.models import User
+from witch.models.user import User
 
 
 class UserController(ModelRestController):
@@ -11,13 +11,15 @@ class UserController(ModelRestController):
     @json
     def create(self):
         user1 = User(
-            name="alireza",
+            name='alireza',
             fullname='tavakoli',
             email='alitk@msn.com',
         )
 
         DBSession.add(user1)
         DBSession.commit()
+
+        return user1
 
     @json
     def add(self):
