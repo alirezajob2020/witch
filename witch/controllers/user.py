@@ -10,24 +10,36 @@ class UserController(ModelRestController):
 
     @json
     def create(self):
-        user1 = User(
-            name='alireza',
-            fullname='tavakoli',
-            email='alitk@msn.com',
+        user = User(
+            name=context.form['username'],
+            fullname=context.form['family'],
+            email=context.form['email'],
         )
 
-        DBSession.add(user1)
+        DBSession.add(user)
         DBSession.commit()
 
-        return user1
+        return user
 
     @json
     def get(self, id):
-        user1 = DBSession.query(User) \
+        user = DBSession.query(User) \
             .filter(User.id == id).one_or_none()
 
-        return user1
+        return user
 
     @json
-    def delete(self):
-        pass
+    @User.expose
+    def list(self):
+        user_list = DBSession.query(User)
+
+        return user_list
+
+    @json
+    def delete(self, id):
+        user = DBSession.query(User).get(id)
+
+        DBSession.delete(user)
+        DBSession.commit()
+
+        return user

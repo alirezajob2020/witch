@@ -14,7 +14,6 @@ attachment_storage = abspath(join(here, '../..', 'data/assets'))
 
 
 class Apiv1(RestController, JSONPatchControllerMixin):
-    # routes
     users = UserController()
     targets = TargetController()
     messages = MessageController()

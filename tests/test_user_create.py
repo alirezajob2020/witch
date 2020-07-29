@@ -12,19 +12,18 @@ class TestUser(LocalApplicationTestCase):
         pass
 
     def test_create(self):
-        title = 'Event1'
-        start_date = datetime.datetime.now().isoformat()
-        end_date = datetime.datetime.now().isoformat()
+        name = 'alireza'
+        family = 'tavakoli'
+        email = 'alitk@msn.com'
 
         with self.given(
                 'Create an event',
                 '/apiv1/users',
                 'CREATE',
                 json=dict(
-                    title=title,
-                    startDate=start_date,
-                    endDate=end_date,
+                    name=name,
+                    family=family,
+                    email=email,
                 ),
         ):
-
             assert status == 200
