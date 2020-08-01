@@ -21,25 +21,4 @@ class UserController(ModelRestController):
 
         return user
 
-    @json
-    def get(self, id):
-        user = DBSession.query(User) \
-            .filter(User.id == id).one_or_none()
-
-        return user
-
-    @json
-    @User.expose
-    def list(self):
-        user_list = DBSession.query(User)
-
-        return user_list
-
-    @json
-    def delete(self, id):
-        user = DBSession.query(User).get(id)
-
-        DBSession.delete(user)
-        DBSession.commit()
-
-        return user
+    
