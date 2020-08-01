@@ -21,12 +21,14 @@ base_call:
       \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
       line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
       \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
-      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/workspace\/witch\/witch\/controllers\/user.py\",
-      line 14, in create\n    name=context.form[''username''],\nKeyError: ''username''\n"}'
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/orm\/__init__.py\",
+      line 80, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/workspace\/witch\/witch\/controllers\/user.py\",
+      line 20, in create\n    aaa = context.response_headers.get()\nTypeError: get()
+      missing 1 required positional argument: ''name''\n"}'
     headers:
     - 'ContentType: application/json'
     status: 500 Internal server error
-  title: Create an event
+  title: Create a user
   url: /apiv1/users
   verb: CREATE
 calls: []

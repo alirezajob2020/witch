@@ -7,14 +7,13 @@
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
 title | ? | ? | ? | Message1
-startDate | ? | ? | ? | 2020-07-29T11:41:51.619044
-endDate | ? | ? | ? | 2020-07-29T11:41:51.619053
-repeat | ? | ? | ? | never
+startDate | ? | ? | ? | 2020-08-01T13:31:38.305110
+endDate | ? | ? | ? | 2020-08-01T13:31:38.305133
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "Message1", "startDate": "2020-07-29T11:41:51.619044", "endDate": "2020-07-29T11:41:51.619053", "repeat": "never"}' -- "$URL/apiv1/messages?"
+curl -X CREATE --data '{"title": "Message1", "startDate": "2020-08-01T13:31:38.305110", "endDate": "2020-08-01T13:31:38.305133"}' -- "$URL/apiv1/messages?"
 ```
 
 ### Response: 200 OK
@@ -24,6 +23,6 @@ curl -X CREATE --data '{"title": "Message1", "startDate": "2020-07-29T11:41:51.6
 Content-Type: application/json
 
 ```json
-"new message is created"
+null
 ```
 

@@ -1,13 +1,12 @@
 base_call:
   json:
-    endDate: '2020-07-29T11:41:52.138447'
-    repeat: never
-    startDate: '2020-07-29T11:41:52.138438'
+    endDate: '2020-08-01T13:31:38.877915'
+    startDate: '2020-08-01T13:31:38.877897'
     title: target1
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
-    json: target is created
+    json: null
     status: 200 OK
   title: Create a target
   url: /apiv1/targets

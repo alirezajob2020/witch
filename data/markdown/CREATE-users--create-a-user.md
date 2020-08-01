@@ -1,4 +1,4 @@
-## Create an event
+## Create a user
 
 ### CREATE /apiv1/users
 

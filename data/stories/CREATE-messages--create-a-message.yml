@@ -1,13 +1,12 @@
 base_call:
   json:
-    endDate: '2020-07-29T11:41:51.619053'
-    repeat: never
-    startDate: '2020-07-29T11:41:51.619044'
+    endDate: '2020-08-01T13:31:38.305133'
+    startDate: '2020-08-01T13:31:38.305110'
     title: Message1
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
-    json: new message is created
+    json: null
     status: 200 OK
   title: Create a message
   url: /apiv1/messages
