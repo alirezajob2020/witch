@@ -245,10 +245,6 @@ class StatusInvalidRoleValue(HTTPKnownStatus):
     status = '756 Invalid Role Value'
 
 
-class StatusTitleIsNull(HTTPKnownStatus):
-    status = '727 Title Is Null'
-
-
 class StatusMaxLenghtForTitle(HTTPKnownStatus):
 
     def __init__(self, lenght):
@@ -410,11 +406,11 @@ class StatusScopesNotInForm(HTTPKnownStatus):
 
 
 class StatusInvalidEmailFormat(HTTPKnownStatus):
-    status = '754 Invalid Email Format'
+    status = '400 Invalid Email Format'
 
 
 class StatusEmailNotInForm(HTTPKnownStatus):
-    status = '753 Email Not In Form'
+    status = '400 Email Not In Form'
 
 
 class StatusInvalidPhaseIdType(HTTPKnownStatus):
@@ -558,7 +554,7 @@ class StatusDailyReportAlreadyExist(HTTPKnownStatus):
 
 
 class StatusInvalidDateFormat(HTTPKnownStatus):
-    status = '932 Invalid Date Format'
+    status = '400 Invalid Date Format'
 
 
 class StatusDateNotInForm(HTTPKnownStatus):
@@ -819,9 +815,39 @@ class StatusRepetitiveAuditlog(HTTPKnownStatus):
 
 
 class StatusStringLengthInvalid(HTTPKnownStatus):
-    status = '400 String Length Must Be Greater Than 1 Characters' \
+    status = '400 String Length Must Be Greater Than 3 Characters' \
              ' and Less than 256 Character'
 
 
 class StatusTheMemberHasNotThisSkill(HTTPKnownStatus):
     status = '400 The Member Has Not This Skill'
+
+
+#####
+
+class StatusInvalidStringType(HTTPKnownStatus):
+    status = '400 invalid type for title'
+
+
+class StatusTitleRequired(HTTPKnownStatus):
+    status = '400 title field is required'
+
+
+class StatusTitleIsNull(HTTPKnownStatus):
+    status = '400 title is null'
+
+
+class StatusFirstnameIsNull(HTTPKnownStatus):
+    status = '400 firstname field is null'
+
+
+class StatusLastnameIsNull(HTTPKnownStatus):
+    status = '400 lastname field is null'
+
+
+class StatusEmailIsNull(HTTPKnownStatus):
+    status = '400 email is null'
+
+
+class StatusRepetitiveEmail(HTTPKnownStatus):
+    status = '400 email address is already exist'

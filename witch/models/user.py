@@ -16,11 +16,17 @@ class User(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
         label='ID',
         minimum=1,
     )
-    name = Field(
-        String(100),
+    title = Field(
+        String(50)
     )
-    fullname = Field(
-        String,
+    birth_date = Field(
+        DateTime,
+    )
+    firstname = Field(
+        String(50),
+    )
+    lastname = Field(
+        String(50),
     )
     email = Field(
         String,
