@@ -25,43 +25,46 @@ class UserController(ModelRestController):
     @validate(
         title=dict(
             type_=(str, StatusInvalidStringType),
-            min_length=(3, StatusStringLengthInvalid),
-            max_length=(256, StatusStringLengthInvalid),
-            required=StatusTitleRequired,
+            min_length=(3, StatusTitleLengthInvalid),
+            max_length=(256, StatusTitleLengthInvalid),
+            required=StatusTitleIsRequired,
             not_none=StatusTitleIsNull,
         ),
-        firstname=dict(
+        firstName=dict(
             not_none=StatusFirstnameIsNull,
         ),
-        lastname=dict(
+        lastName=dict(
             not_none=StatusLastnameIsNull,
         ),
-        birth_date=dict(
+        birthDate=dict(
             pattern=(DATETIME_PATTERN, StatusInvalidDateFormat),
         ),
         email=dict(
-            required=StatusEmailNotInForm,
+            required=StatusEmailIsRequired,
             not_none=StatusEmailIsNull,
             pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
         ),
     )
     @commit
     def create(self):
+        title = context.form.get('title')
+        email = context.form.get('email')
 
-        query = DBSession.query(User) \
-            .filter(User.email == context.form.get('email')) \
+        user = DBSession.query(User) \
+            .filter(User.title == title) \
             .one_or_none()
 
-        if query is None:
-            user = User(
-                title=context.form.get('title'),
-                firstname=context.form.get('firstname'),
-                lastname=context.form.get('lastname'),
-                birth_date=context.form.get('birth_date'),
-                email=context.form.get('email'),
-            )
-            DBSession.add(user)
-        else:
-            raise StatusRepetitiveEmail
+        if user is not None:
+            raise StatusRepetitiveTitle()
 
+        user = DBSession.query(User) \
+            .filter(User.email == email) \
+            .one_or_none()
+
+        if user is not None:
+            raise StatusRepetitiveEmail()
+
+        user = User()
+        user.update_from_request()
+        DBSession.add(user)
         return user

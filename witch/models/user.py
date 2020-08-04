@@ -19,14 +19,14 @@ class User(OrderingMixin, FilteringMixin, PaginationMixin, DeclarativeBase):
     title = Field(
         String(50)
     )
+    first_name = Field(
+        String(50),
+    )
+    last_name = Field(
+        String(50),
+    )
     birth_date = Field(
         DateTime,
-    )
-    firstname = Field(
-        String(50),
-    )
-    lastname = Field(
-        String(50),
     )
     email = Field(
         String,

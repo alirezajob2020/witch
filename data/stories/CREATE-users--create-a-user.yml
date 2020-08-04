@@ -1,20 +1,20 @@
 base_call:
   json:
-    birth_date: 1970-2-2
-    email: alitk@msn.com
-    firstname: alireza
-    lastname: tavakoli
-    title: alitk777
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
     json:
-      birthDate: '1970-02-02T00:00:00'
-      email: alitk@msn.com
-      firstname: alireza
+      birthDate: '1972-02-02T00:00:00'
+      email: mohsen@msnaa.com
+      firstName: asdasfdsasdd
       id: 1
-      lastname: tavakoli
-      title: alitk777
+      lastName: zxczxczxcasdv
+      title: qweqweqwe
     status: 200 OK
   title: Create a user
   url: /apiv1/users
@@ -37,17 +37,17 @@ calls:
       \  File \"/home/alireza/.virtualenvs/witch/lib/python3.6/site-packages/nanohttp/controllers.py\"\
       , line 108, in __call__\n    self._validate_handler(handler, remaining_paths)\n\
       \  File \"/home/alireza/.virtualenvs/witch/lib/python3.6/site-packages/nanohttp/controllers.py\"\
-      , line 66, in _validate_handler\n    if isinstance(prevent_empty_form, str)\
-      \ \\\nnanohttp.exceptions.HTTPStatus: 400 No Parameter Exists In The Form\n"
+      , line 67, in _validate_handler\n    else '400 Empty Form'\nnanohttp.exceptions.HTTPStatus:\
+      \ 400 No Parameter Exists In The Form\n"
     headers:
     - 'ContentType: text/plain;charset=utf-8'
     status: 400 No Parameter Exists In The Form
   title: Trying to pass without form parameters
 - json:
-    birth_date: 1970-2-2
-    email: alitk@msn.com
-    firstname: alireza
-    lastname: tavakoli
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
     title: null
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -79,10 +79,10 @@ calls:
     status: 400 title is null
   title: Trying to pass null title
 - json:
-    birth_date: 1970-2-2
-    email: alitk@msn.com
-    firstname: alireza
-    lastname: tavakoli
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
       line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
@@ -113,10 +113,10 @@ calls:
     status: 400 title field is required
   title: Trying to pass empty title
 - json:
-    birth_date: 1970-2-2
-    email: alitk@msn.com
-    firstname: alireza
-    lastname: tavakoli
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
     title: aq
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -143,9 +143,255 @@ calls:
       line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
       line 89, in validate\n    field\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
       line 166, in _validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
-      400 String Length Must Be Greater Than 3 Characters and Less than 256 Character\n"}'
+      400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character\n"}'
     headers:
     - 'ContentType: application/json'
-    status: 400 String Length Must Be Greater Than 3 Characters and Less than 256
-      Character
+    status: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
   title: Trying to pass less than 3 character
+- json:
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 89, in validate\n    field\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 175, in _validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
+  title: Trying to pass greater than 256 character
+- json:
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: null
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 143, in validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 firstname field is null\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 firstname field is null
+  title: Trying to pass null firstname
+- json:
+    birthDate: 1972-2-2
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: null
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 143, in validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 lastname field is null\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 lastname field is null
+  title: Trying to pass null lastname
+- json:
+    birthDate: 30-50-40
+    email: mohsen@msnaa.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 89, in validate\n    field\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 211, in _validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 Invalid Date Format\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 Invalid Date Format
+  title: Trying to pass wrong date
+- json:
+    birthDate: 1972-2-2
+    email: null
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 143, in validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 email is null\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 email is null
+  title: Trying to pass null title
+- json:
+    birthDate: 1972-2-2
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 134, in validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 Email Not In Form\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 Email Not In Form
+  title: Trying to pass empty email
+- json:
+    birthDate: 1972-2-2
+    email: asd.com
+    firstName: asdasfdsasdd
+    lastName: zxczxczxcasdv
+    title: qweqweqwe
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/decorators.py\",
+      line 133, in wrapper\n    result = func(*args, **kwargs)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 316, in wrapper\n    validator(form=context.form, query=context.query)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 234, in __call__\n    field.validate(form)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 55, in validate\n    criterion.validate(self, container)\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 89, in validate\n    field\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/validation.py\",
+      line 211, in _validate\n    raise self.create_exception()\nnanohttp.exceptions.HTTPBadRequest:
+      400 Invalid Email Format\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 400 Invalid Email Format
+  title: Trying to pass invalid email format

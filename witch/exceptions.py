@@ -409,10 +409,6 @@ class StatusInvalidEmailFormat(HTTPKnownStatus):
     status = '400 Invalid Email Format'
 
 
-class StatusEmailNotInForm(HTTPKnownStatus):
-    status = '400 Email Not In Form'
-
-
 class StatusInvalidPhaseIdType(HTTPKnownStatus):
     status = '738 Invalid Phase Id Type'
 
@@ -814,9 +810,9 @@ class StatusRepetitiveAuditlog(HTTPKnownStatus):
     status = '400 Repetitive Auditlog'
 
 
-class StatusStringLengthInvalid(HTTPKnownStatus):
-    status = '400 String Length Must Be Greater Than 3 Characters' \
-             ' and Less than 256 Character'
+class StatusTitleLengthInvalid(HTTPKnownStatus):
+    status = '400 Title Length Must Be Greater Than 3' \
+             ' Characters and Less than 256 Character'
 
 
 class StatusTheMemberHasNotThisSkill(HTTPKnownStatus):
@@ -829,8 +825,12 @@ class StatusInvalidStringType(HTTPKnownStatus):
     status = '400 invalid type for title'
 
 
-class StatusTitleRequired(HTTPKnownStatus):
+class StatusTitleIsRequired(HTTPKnownStatus):
     status = '400 title field is required'
+
+
+class StatusRepetitiveTitle(HTTPKnownStatus):
+    status = '400 title is already exist'
 
 
 class StatusTitleIsNull(HTTPKnownStatus):
@@ -847,6 +847,10 @@ class StatusLastnameIsNull(HTTPKnownStatus):
 
 class StatusEmailIsNull(HTTPKnownStatus):
     status = '400 email is null'
+
+
+class StatusEmailIsRequired(HTTPKnownStatus):
+    status = '400 Email Not In Form'
 
 
 class StatusRepetitiveEmail(HTTPKnownStatus):

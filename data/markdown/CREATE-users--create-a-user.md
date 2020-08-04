@@ -6,16 +6,16 @@
 
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
-title | ? | ? | ? | alitk777
-firstname | ? | ? | ? | alireza
-lastname | ? | ? | ? | tavakoli
-birth_date | ? | ? | ? | 1970-2-2
-email | ? | ? | ? | alitk@msn.com
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "alitk777", "firstname": "alireza", "lastname": "tavakoli", "birth_date": "1970-2-2", "email": "alitk@msn.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 200 OK
@@ -26,12 +26,12 @@ Content-Type: application/json
 
 ```json
 {
-    "firstname":"alireza",
-    "lastname":"tavakoli",
     "id":1,
-    "birthDate":"1970-02-02T00:00:00",
-    "email":"alitk@msn.com",
-    "title":"alitk777"
+    "title":"qweqweqwe",
+    "firstName":"asdasfdsasdd",
+    "email":"mohsen@msnaa.com",
+    "lastName":"zxczxczxcasdv",
+    "birthDate":"1972-02-02T00:00:00"
 }
 ```
 
@@ -64,15 +64,15 @@ curl -X CREATE -- "$URL/apiv1/users?"
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
 title | ? | ? | ? | None
-firstname | ? | ? | ? | alireza
-lastname | ? | ? | ? | tavakoli
-birth_date | ? | ? | ? | 1970-2-2
-email | ? | ? | ? | alitk@msn.com
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": null, "firstname": "alireza", "lastname": "tavakoli", "birth_date": "1970-2-2", "email": "alitk@msn.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": null, "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 title is null
@@ -91,15 +91,15 @@ curl -X CREATE --data '{"title": null, "firstname": "alireza", "lastname": "tava
 
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
-firstname | ? | ? | ? | alireza
-lastname | ? | ? | ? | tavakoli
-birth_date | ? | ? | ? | 1970-2-2
-email | ? | ? | ? | alitk@msn.com
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"firstname": "alireza", "lastname": "tavakoli", "birth_date": "1970-2-2", "email": "alitk@msn.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 title field is required
@@ -119,18 +119,213 @@ curl -X CREATE --data '{"firstname": "alireza", "lastname": "tavakoli", "birth_d
 Name | Required | Nullable | Type | Example
 --- | --- | --- | --- | ---
 title | ? | ? | ? | aq
-firstname | ? | ? | ? | alireza
-lastname | ? | ? | ? | tavakoli
-birth_date | ? | ? | ? | 1970-2-2
-email | ? | ? | ? | alitk@msn.com
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "aq", "firstname": "alireza", "lastname": "tavakoli", "birth_date": "1970-2-2", "email": "alitk@msn.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "aq", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
 ```
 
-### Response: 400 String Length Must Be Greater Than 3 Characters and Less than 256 Character
+### Response: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass greater than 256 character
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass null firstname
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | None
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": null, "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 firstname field is null
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass null lastname
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | None
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | mohsen@msnaa.com
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": null, "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 lastname field is null
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass wrong date
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 30-50-40
+email | ? | ? | ? | mohsen@msnaa.com
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "30-50-40", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 Invalid Date Format
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass null title
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | None
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": null}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 email is null
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass empty email
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 Email Not In Form
+
+#### Headers
+
+* ContentType: application/json
+
+---
+
+## WHEN: Trying to pass invalid email format
+
+### CREATE /apiv1/users
+
+### Form
+
+Name | Required | Nullable | Type | Example
+--- | --- | --- | --- | ---
+title | ? | ? | ? | qweqweqwe
+firstName | ? | ? | ? | asdasfdsasdd
+lastName | ? | ? | ? | zxczxczxcasdv
+birthDate | ? | ? | ? | 1972-2-2
+email | ? | ? | ? | asd.com
+
+### CURL
+
+```bash
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "asd.com"}' -- "$URL/apiv1/users?"
+```
+
+### Response: 400 Invalid Email Format
 
 #### Headers
 
