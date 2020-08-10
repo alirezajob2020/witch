@@ -11,14 +11,19 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 200 OK
+
+#### Headers
+
+* X-New-JWT-Token: eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzA1ODQyNCwiZXhwIjoxNTk3MTQ0ODI0fQ.eyJpZCI6bnVsbCwidGl0bGUiOiJxd2Vxd2Vxd2UiLCJlbWFpbCI6Im1vaHNlbkBtc25hYS5jb20iLCJmaXJzdE5hbWUiOiJhc2Rhc2Zkc2FzZGQiLCJsYXN0TmFtZSI6Inp4Y3p4Y3p4Y2FzZHYiLCJzZXNzaW9uSWQiOiIyN2RjMDNiOC0zMzU2LTQwYmEtOWRiZi03Zjg1M2FiNWRmNmUifQ.rooPorUH49km7n4qJGRdl13nGdRFfT-bTFtfGdEJMU0
 
 #### Body
 
@@ -26,12 +31,12 @@ Content-Type: application/json
 
 ```json
 {
-    "id":1,
-    "title":"qweqweqwe",
-    "firstName":"asdasfdsasdd",
-    "email":"mohsen@msnaa.com",
     "lastName":"zxczxczxcasdv",
-    "birthDate":"1972-02-02T00:00:00"
+    "title":"qweqweqwe",
+    "birthDate":"1972-02-02",
+    "firstName":"asdasfdsasdd",
+    "id":1,
+    "email":"mohsen@msnaa.com"
 }
 ```
 
@@ -68,11 +73,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": null, "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": null, "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 title is null
@@ -95,11 +101,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 title field is required
@@ -123,11 +130,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "aq", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "aq", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
@@ -151,11 +159,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 Title Length Must Be Greater Than 3 Characters and Less than 256 Character
@@ -179,11 +188,12 @@ firstName | ? | ? | ? | None
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": null, "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": null, "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 firstname field is null
@@ -207,11 +217,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | None
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": null, "birthDate": "1972-2-2", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": null, "birthDate": "1972-2-2", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 lastname field is null
@@ -235,11 +246,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 30-50-40
 email | ? | ? | ? | mohsen@msnaa.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "30-50-40", "email": "mohsen@msnaa.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "30-50-40", "email": "mohsen@msnaa.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 Invalid Date Format
@@ -263,11 +275,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | None
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": null}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": null, "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 email is null
@@ -290,11 +303,12 @@ title | ? | ? | ? | qweqweqwe
 firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 Email Not In Form
@@ -318,11 +332,12 @@ firstName | ? | ? | ? | asdasfdsasdd
 lastName | ? | ? | ? | zxczxczxcasdv
 birthDate | ? | ? | ? | 1972-2-2
 email | ? | ? | ? | asd.com
+password | ? | ? | ? | Alitk123123
 
 ### CURL
 
 ```bash
-curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "asd.com"}' -- "$URL/apiv1/users?"
+curl -X CREATE --data '{"title": "qweqweqwe", "firstName": "asdasfdsasdd", "lastName": "zxczxczxcasdv", "birthDate": "1972-2-2", "email": "asd.com", "password": "Alitk123123"}' -- "$URL/apiv1/users?"
 ```
 
 ### Response: 400 Invalid Email Format

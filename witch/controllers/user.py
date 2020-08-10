@@ -15,6 +15,7 @@ DATETIME_PATTERN = re.compile(
     r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])' \
     r'(T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.[0-9]+)?(Z)?)?$'
 )
+USER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 
 
 class UserController(ModelRestController):
@@ -44,6 +45,13 @@ class UserController(ModelRestController):
             not_none=StatusEmailIsNull,
             pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
         ),
+        password=dict(
+            required=HTTPPasswordNotInForm,
+            not_none=HTTPPasswordIsNull,
+            min_length=(6, HTTPPasswordInvalidLength),
+            max_length=(20, HTTPPasswordInvalidLength),
+            pattern=(USER_PASSWORD_PATTERN, HTTPPasswordWrongPattern)
+        )
     )
     @commit
     def create(self):
@@ -67,4 +75,6 @@ class UserController(ModelRestController):
         user = User()
         user.update_from_request()
         DBSession.add(user)
+        principal = user.create_jwt_principal()
+        context.application.__authenticator__.setup_response_headers(principal)
         return user

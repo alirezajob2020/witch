@@ -5,16 +5,14 @@ from nanohttp import settings
 from restfulpy import Application
 from sqlalchemy_media import StoreManager, FileSystemStore
 
-# from . import basedata, mockup
-# from .authentication import Authenticator
-# from .cli import EmailSubCommand, CheckDailyreportSubCommand, \
-#     CheckItemBoardingSubCommand, MetadataSubCommand, AuditlogSubCommand
+from .authentication import Authenticator
 from .controllers.root import Root
 
 __version__ = '0.1'
 
 
 class Witch(Application):
+    __authenticator__ = Authenticator()
     __configuration__ = '''
       db:
         url: postgresql://postgres:postgres@localhost/witch_dev

@@ -301,7 +301,7 @@ class StatusRepeatNotInForm(HTTPKnownStatus):
     status = '911 Repeat Not In Form'
 
 
-class StatusQueryParameterNotInFormOrQueryString(HTTPKnownStatus):
+class StatusQueryParameterOrQueryString(HTTPKnownStatus):
     status = '912 Query Parameter Not In Form Or Query String'
 
 
@@ -717,10 +717,6 @@ class StatusIsSkippedIsNull(HTTPKnownStatus):
     status = '965 Is Skipped Is Null'
 
 
-class HTTPIncorrectEmailOrPassword(HTTPKnownStatus):
-    status = '400 Incorrect Email Or Password'
-
-
 class StatusAddMemberToPublicGroup(HTTPKnownStatus):
     status = '400 Adding a Member to Public Groups Is not Allowed'
 
@@ -855,3 +851,31 @@ class StatusEmailIsRequired(HTTPKnownStatus):
 
 class StatusRepetitiveEmail(HTTPKnownStatus):
     status = '400 email address is already exist'
+
+
+class HTTPIncorrectEmailOrPassword(HTTPKnownStatus):
+    status = '400 Incorrect Email Or Password'
+
+
+class HTTPTokenExpired(HTTPKnownStatus):
+    status = '400 Token has been expired'
+
+
+class HTTPMalformedToken(HTTPKnownStatus):
+    status = '400 Malformed Token'
+
+
+class HTTPPasswordNotInForm(HTTPKnownStatus):
+    status = '400 Password Not In Form'
+
+
+class HTTPPasswordIsNull(HTTPKnownStatus):
+    status = '400 Password is null'
+
+
+class HTTPPasswordInvalidLength(HTTPKnownStatus):
+    status = '400 Invalid Password Length'
+
+
+class HTTPPasswordWrongPattern(HTTPKnownStatus):
+    status = '400 Password Not Complex Enough'

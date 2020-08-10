@@ -11,6 +11,7 @@ class TestUser(LocalApplicationTestCase):
         last_name = 'zxczxczxcasdv'
         birth_date = '1972-2-2'
         email = 'mohsen@msnaa.com'
+        password = 'Alitk123123'
 
         with self.given(
                 'Create a user',
@@ -22,6 +23,7 @@ class TestUser(LocalApplicationTestCase):
                     lastName=last_name,
                     birthDate=birth_date,
                     email=email,
+                    password=password,
                 ),
         ):
             assert status == 200

@@ -4,12 +4,14 @@ base_call:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
+    - 'X-New-JWT-Token: eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzA1ODQyNCwiZXhwIjoxNTk3MTQ0ODI0fQ.eyJpZCI6bnVsbCwidGl0bGUiOiJxd2Vxd2Vxd2UiLCJlbWFpbCI6Im1vaHNlbkBtc25hYS5jb20iLCJmaXJzdE5hbWUiOiJhc2Rhc2Zkc2FzZGQiLCJsYXN0TmFtZSI6Inp4Y3p4Y3p4Y2FzZHYiLCJzZXNzaW9uSWQiOiIyN2RjMDNiOC0zMzU2LTQwYmEtOWRiZi03Zjg1M2FiNWRmNmUifQ.rooPorUH49km7n4qJGRdl13nGdRFfT-bTFtfGdEJMU0'
     json:
-      birthDate: '1972-02-02T00:00:00'
+      birthDate: '1972-02-02'
       email: mohsen@msnaa.com
       firstName: asdasfdsasdd
       id: 1
@@ -48,6 +50,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: null
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -83,6 +86,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
       line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
@@ -117,6 +121,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: aq
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -153,6 +158,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -189,6 +195,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: null
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -224,6 +231,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: null
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -259,6 +267,7 @@ calls:
     email: mohsen@msnaa.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -295,6 +304,7 @@ calls:
     email: null
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -329,6 +339,7 @@ calls:
     birthDate: 1972-2-2
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
@@ -364,6 +375,7 @@ calls:
     email: asd.com
     firstName: asdasfdsasdd
     lastName: zxczxczxcasdv
+    password: Alitk123123
     title: qweqweqwe
   response:
     body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
