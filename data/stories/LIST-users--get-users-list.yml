@@ -1,0 +1,172 @@
+base_call:
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 100'
+    - 'X-Pagination-Skip: 0'
+    - 'X-Pagination-Count: 3'
+    json:
+    - birthDate: null
+      email: alireza@msn.com
+      firstName: alirezaa2
+      id: 1
+      lastName: tavakoli1
+      title: alitk777
+    - birthDate: null
+      email: alireza1@msn.com
+      firstName: alizaaaaa
+      id: 2
+      lastName: tavakoliiii
+      title: alitk778
+    - birthDate: null
+      email: alireza2@msn.com
+      firstName: ali
+      id: 3
+      lastName: tavakoliiii
+      title: alitk779
+    status: 200 OK
+  title: get users list
+  url: /apiv1/users
+  verb: LIST
+calls:
+- authorization: null
+  response:
+    body: '{"stackTrace":"Traceback (most recent call last):\n  File \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/application.py\",
+      line 110, in __call__\n    response_body = self.__root__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/controllers.py\",
+      line 19, in __call__\n    return super().__call__(*remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 109, in __call__\n    return self._serve_handler(handler, remaining_paths)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/nanohttp\/controllers.py\",
+      line 103, in _serve_handler\n    return handler(*remaining_paths, **kwargs)\n  File
+      \"\/home\/alireza\/.virtualenvs\/witch\/lib\/python3.6\/site-packages\/restfulpy\/authorization.py\",
+      line 16, in wrapper\n    raise HTTPUnauthorized()\nnanohttp.exceptions.HTTPUnauthorized:
+      401 Unauthorized\n"}'
+    headers:
+    - 'ContentType: application/json'
+    status: 401 Unauthorized
+  title: Request is not authorized
+- query:
+    sort: id
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 100'
+    - 'X-Pagination-Skip: 0'
+    - 'X-Pagination-Count: 3'
+    json:
+    - birthDate: null
+      email: alireza@msn.com
+      firstName: alirezaa2
+      id: 1
+      lastName: tavakoli1
+      title: alitk777
+    - birthDate: null
+      email: alireza1@msn.com
+      firstName: alizaaaaa
+      id: 2
+      lastName: tavakoliiii
+      title: alitk778
+    - birthDate: null
+      email: alireza2@msn.com
+      firstName: ali
+      id: 3
+      lastName: tavakoliiii
+      title: alitk779
+    status: 200 OK
+  title: Trying to sorting response
+- query:
+    sort: -id
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 100'
+    - 'X-Pagination-Skip: 0'
+    - 'X-Pagination-Count: 3'
+    json:
+    - birthDate: null
+      email: alireza2@msn.com
+      firstName: ali
+      id: 3
+      lastName: tavakoliiii
+      title: alitk779
+    - birthDate: null
+      email: alireza1@msn.com
+      firstName: alizaaaaa
+      id: 2
+      lastName: tavakoliiii
+      title: alitk778
+    - birthDate: null
+      email: alireza@msn.com
+      firstName: alirezaa2
+      id: 1
+      lastName: tavakoli1
+      title: alitk777
+    status: 200 OK
+  title: Sorting the response descending
+- query:
+    take: 1
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 1'
+    - 'X-Pagination-Skip: 0'
+    - 'X-Pagination-Count: 3'
+    json:
+    - birthDate: null
+      email: alireza@msn.com
+      firstName: alirezaa2
+      id: 1
+      lastName: tavakoli1
+      title: alitk777
+    status: 200 OK
+  title: Trying pagination response
+- query:
+    skip: 1
+    take: 1
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 1'
+    - 'X-Pagination-Skip: 1'
+    - 'X-Pagination-Count: 3'
+    json:
+    - birthDate: null
+      email: alireza1@msn.com
+      firstName: alizaaaaa
+      id: 2
+      lastName: tavakoliiii
+      title: alitk778
+    status: 200 OK
+  title: Trying pagination with skip
+- query:
+    id: 1
+  response:
+    headers:
+    - 'X-Identity: 1'
+    - 'Content-Type: application/json; charset=utf-8'
+    - 'X-Pagination-Take: 100'
+    - 'X-Pagination-Skip: 0'
+    - 'X-Pagination-Count: 1'
+    json:
+    - birthDate: null
+      email: alireza@msn.com
+      firstName: alirezaa2
+      id: 1
+      lastName: tavakoli1
+      title: alitk777
+    status: 200 OK
+  title: Trying filtering response

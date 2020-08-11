@@ -1,4 +1,4 @@
-from bddrest import status, response, when, given, Update
+from bddrest import status, response, when, given
 
 from witch.models.user import User
 from tests.helpers import LocalApplicationTestCase

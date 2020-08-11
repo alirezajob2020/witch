@@ -20,7 +20,7 @@ curl -X CREATE --data '{"email": "alireza@msn.com", "password": "ABc123123"}' --
 #### Headers
 
 * X-Identity: 1
-* Set-Cookie: refresh-token=eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzEzNTU0OCwiZXhwIjoxNTk5ODEzOTQ4fQ.eyJpZCI6MX0.egB4CT8HTvtoNmh3JH8BQ_MCXL7Sw7pjRTrXxYwcdHI; Max-Age=2678400; Secure
+* Set-Cookie: refresh-token=eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzE0ODEzMCwiZXhwIjoxNTk5ODI2NTMwfQ.eyJpZCI6MX0.u26r3FwrALtJhpyJXLxh4I_PH6CPhRWx6yttEwRuDWo; Max-Age=2678400; Secure
 
 #### Body
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ```json
 {
-    "token":"eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzEzNTU0OCwiZXhwIjoxNTk3MjIxOTQ4fQ.eyJpZCI6MSwidGl0bGUiOiJhbGl0azc3NyIsImVtYWlsIjoiYWxpcmV6YUBtc24uY29tIiwiZmlyc3ROYW1lIjoiYWxpcmV6YWEiLCJsYXN0TmFtZSI6InRhdmFrb2xpIiwic2Vzc2lvbklkIjoiM2RkMmQ5MjktZThlYi00MjU4LWExM2YtZTFhNTczYzgyMjM3In0.xX3A161_ZGbO3M39QHnGzwOrtil6BAUfGPz5O3DX4Ag"
+    "token":"eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzE0ODEzMCwiZXhwIjoxNTk3MjM0NTMwfQ.eyJpZCI6MSwidGl0bGUiOiJhbGl0azc3NyIsImVtYWlsIjoiYWxpcmV6YUBtc24uY29tIiwiZmlyc3ROYW1lIjoiYWxpcmV6YWEiLCJsYXN0TmFtZSI6InRhdmFrb2xpIiwic2Vzc2lvbklkIjoiZDFiNGE0MWYtYTFjMy00ZjYzLWEzOGMtYTdmZmNjYmI0MDI0In0.HddsX2mFnp_oW-4Cvh27iOCzM0dRHtLyuKdYvEGCnHA"
 }
 ```
 

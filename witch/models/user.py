@@ -5,13 +5,14 @@ from datetime import datetime
 
 from cas import CASPrincipal
 from nanohttp import context, settings, HTTPStatus
-from restfulpy.orm import DeclarativeBase, Field, DBSession, relationship
+from restfulpy.orm import DeclarativeBase, Field, DBSession, relationship, \
+    OrderingMixin, FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
 from sqlalchemy import Unicode, Integer, JSON, Date, UniqueConstraint, String
 from sqlalchemy.orm import synonym
 
 
-class User(DeclarativeBase):
+class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     __tablename__ = 'user'
 
     id = Field(

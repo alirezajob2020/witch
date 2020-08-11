@@ -47,7 +47,7 @@ class TestUser(LocalApplicationTestCase):
                 json=given | dict(title='aq')
             )
             assert status == '400 Title Length Must Be Greater Than 3 ' \
-                             'Characters and Less than 256 Character'
+                'Characters and Less than 256 Character'
 
             when(
                 'Trying to pass greater than 256 character',

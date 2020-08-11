@@ -82,5 +82,7 @@ class UserController(ModelRestController):
 
     @authorize
     @json
+    @User.expose
     def list(self):
-        return "update user"
+        users = DBSession.query(User)
+        return users

@@ -29,5 +29,9 @@ class LocalApplicationTestCase(ApplicableTestCase):
                 max_length: 5
         '''
 
-    def login(self, email, organization_id=None):
-        pass
+    def login(self, email, password, url='/apiv1/tokens', verb='CREATE'):
+        super().login(
+            form=dict(email=email, password=password),
+            url=url,
+            verb=verb
+        )
