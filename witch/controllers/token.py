@@ -4,7 +4,8 @@ from nanohttp import RestController, json, validate, context
 from restfulpy.authorization import authorize
 
 from ..exceptions import HTTPIncorrectEmailOrPassword, StatusEmailIsRequired, \
-    StatusEmailIsNull, StatusInvalidEmailFormat
+    StatusEmailIsNull, StatusInvalidEmailFormat, HTTPPasswordNotInForm, \
+    HTTPPasswordIsNull, HTTPPasswordInvalidLength, HTTPPasswordWrongPattern
 
 USER_EMAIL_PATTERN = re.compile(
     r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
@@ -18,7 +19,7 @@ USER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 
 class TokenController(RestController):
 
-    @json(prevent_empty_form=True)
+    @json(prevent_empty_form='400 Empty Form')
     @validate(
         email=dict(
             required=StatusEmailIsRequired,
@@ -26,11 +27,11 @@ class TokenController(RestController):
             pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
         ),
         password=dict(
-            required='400 Password Not In Form',
-            not_none='400 Password is null',
-            min_length=(6, '400 Invalid Password Length'),
-            max_length=(20, '400 Invalid Password Length'),
-            pattern=(USER_PASSWORD_PATTERN, '400 Password Not Complex Enough')
+            required=HTTPPasswordNotInForm,
+            not_none=HTTPPasswordIsNull,
+            min_length=(6, HTTPPasswordInvalidLength),
+            max_length=(20, HTTPPasswordInvalidLength),
+            pattern=(USER_PASSWORD_PATTERN, HTTPPasswordWrongPattern)
         )
     )
     def create(self):
@@ -41,8 +42,6 @@ class TokenController(RestController):
 
         principal = context.application.__authenticator__. \
             login((email, password))
-
-        print(principal)
 
         if principal is None:
             raise HTTPIncorrectEmailOrPassword()

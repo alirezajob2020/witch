@@ -9,7 +9,7 @@ base_call:
   response:
     headers:
     - 'Content-Type: application/json; charset=utf-8'
-    - 'X-New-JWT-Token: eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzA1ODQyNCwiZXhwIjoxNTk3MTQ0ODI0fQ.eyJpZCI6bnVsbCwidGl0bGUiOiJxd2Vxd2Vxd2UiLCJlbWFpbCI6Im1vaHNlbkBtc25hYS5jb20iLCJmaXJzdE5hbWUiOiJhc2Rhc2Zkc2FzZGQiLCJsYXN0TmFtZSI6Inp4Y3p4Y3p4Y2FzZHYiLCJzZXNzaW9uSWQiOiIyN2RjMDNiOC0zMzU2LTQwYmEtOWRiZi03Zjg1M2FiNWRmNmUifQ.rooPorUH49km7n4qJGRdl13nGdRFfT-bTFtfGdEJMU0'
+    - 'X-New-JWT-Token: eyJhbGciOiJIUzI1NiIsImlhdCI6MTU5NzEzNTU0OSwiZXhwIjoxNTk3MjIxOTQ5fQ.eyJpZCI6bnVsbCwidGl0bGUiOiJxd2Vxd2Vxd2UiLCJlbWFpbCI6Im1vaHNlbkBtc25hYS5jb20iLCJmaXJzdE5hbWUiOiJhc2Rhc2Zkc2FzZGQiLCJsYXN0TmFtZSI6Inp4Y3p4Y3p4Y2FzZHYiLCJzZXNzaW9uSWQiOiJlZmVmNDE1ZS05YWVkLTQxMDctYTcxMy1jYTlhNGM4YzUxZDUifQ.K5tFK4_Woz9G0PYErNmDnNQ7clLCpIORFCsYt_a34jw'
     json:
       birthDate: '1972-02-02'
       email: mohsen@msnaa.com

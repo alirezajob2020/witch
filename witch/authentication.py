@@ -15,7 +15,7 @@ class Authenticator(StatefulAuthenticator):
         member = DBSession.query(User).filter(condition).one_or_none()
 
         if member is None:
-            raise HTTPStatus('603 Incorrect Email Or Password')
+            raise HTTPStatus('400 Incorrect Email Or Password')
 
         return member
 

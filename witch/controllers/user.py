@@ -1,6 +1,7 @@
 import re
 
 from nanohttp import json, HTTPNotFound, validate, int_or_notfound, context
+from restfulpy.authorization import authorize
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
 from sqlalchemy import exists, and_, or_
@@ -78,3 +79,8 @@ class UserController(ModelRestController):
         principal = user.create_jwt_principal()
         context.application.__authenticator__.setup_response_headers(principal)
         return user
+
+    @authorize
+    @json
+    def list(self):
+        return "update user"
