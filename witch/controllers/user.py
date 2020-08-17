@@ -166,9 +166,4 @@ class UserController(ModelRestController):
             DBSession.delete(user)
 
         return user
-
-    @authorize
-    @json
-    def test(self):
-        return context.identity.payload
-
+    
