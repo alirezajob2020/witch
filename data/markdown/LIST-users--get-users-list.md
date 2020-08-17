@@ -24,28 +24,28 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"alirezaa2",
         "id":1,
-        "email":"alireza@msn.com",
+        "birthDate":null,
         "lastName":"tavakoli1",
-        "birthDate":null,
-        "title":"alitk777"
+        "title":"alitk777",
+        "firstName":"alirezaa2",
+        "email":"alireza@msn.com"
     },
     {
-        "firstName":"alizaaaaa",
         "id":2,
-        "email":"alireza1@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk778"
+        "lastName":"tavakoliiii",
+        "title":"alitk778",
+        "firstName":"alizaaaaa",
+        "email":"alireza1@msn.com"
     },
     {
-        "firstName":"ali",
         "id":3,
-        "email":"alireza2@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk779"
+        "lastName":"tavakoliiii",
+        "title":"alitk779",
+        "firstName":"ali",
+        "email":"alireza2@msn.com"
     }
 ]
 ```
@@ -102,28 +102,28 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"alirezaa2",
         "id":1,
-        "email":"alireza@msn.com",
+        "birthDate":null,
         "lastName":"tavakoli1",
-        "birthDate":null,
-        "title":"alitk777"
+        "title":"alitk777",
+        "firstName":"alirezaa2",
+        "email":"alireza@msn.com"
     },
     {
-        "firstName":"alizaaaaa",
         "id":2,
-        "email":"alireza1@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk778"
+        "lastName":"tavakoliiii",
+        "title":"alitk778",
+        "firstName":"alizaaaaa",
+        "email":"alireza1@msn.com"
     },
     {
-        "firstName":"ali",
         "id":3,
-        "email":"alireza2@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk779"
+        "lastName":"tavakoliiii",
+        "title":"alitk779",
+        "firstName":"ali",
+        "email":"alireza2@msn.com"
     }
 ]
 ```
@@ -162,28 +162,28 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"ali",
         "id":3,
-        "email":"alireza2@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk779"
+        "lastName":"tavakoliiii",
+        "title":"alitk779",
+        "firstName":"ali",
+        "email":"alireza2@msn.com"
     },
     {
-        "firstName":"alizaaaaa",
         "id":2,
-        "email":"alireza1@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk778"
+        "lastName":"tavakoliiii",
+        "title":"alitk778",
+        "firstName":"alizaaaaa",
+        "email":"alireza1@msn.com"
     },
     {
-        "firstName":"alirezaa2",
         "id":1,
-        "email":"alireza@msn.com",
-        "lastName":"tavakoli1",
         "birthDate":null,
-        "title":"alitk777"
+        "lastName":"tavakoli1",
+        "title":"alitk777",
+        "firstName":"alirezaa2",
+        "email":"alireza@msn.com"
     }
 ]
 ```
@@ -222,12 +222,12 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"alirezaa2",
         "id":1,
-        "email":"alireza@msn.com",
-        "lastName":"tavakoli1",
         "birthDate":null,
-        "title":"alitk777"
+        "lastName":"tavakoli1",
+        "title":"alitk777",
+        "firstName":"alirezaa2",
+        "email":"alireza@msn.com"
     }
 ]
 ```
@@ -267,12 +267,12 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"alizaaaaa",
         "id":2,
-        "email":"alireza1@msn.com",
-        "lastName":"tavakoliiii",
         "birthDate":null,
-        "title":"alitk778"
+        "lastName":"tavakoliiii",
+        "title":"alitk778",
+        "firstName":"alizaaaaa",
+        "email":"alireza1@msn.com"
     }
 ]
 ```
@@ -311,13 +311,31 @@ Content-Type: application/json
 ```json
 [
     {
-        "firstName":"alirezaa2",
         "id":1,
-        "email":"alireza@msn.com",
-        "lastName":"tavakoli1",
         "birthDate":null,
-        "title":"alitk777"
+        "lastName":"tavakoli1",
+        "title":"alitk777",
+        "firstName":"alirezaa2",
+        "email":"alireza@msn.com"
     }
 ]
 ```
+
+---
+
+## WHEN: Request is not authorized
+
+### LIST /apiv1/users
+
+### CURL
+
+```bash
+curl -X LIST -- "$URL/apiv1/users?"
+```
+
+### Response: 401 Unauthorized
+
+#### Headers
+
+* ContentType: application/json
 

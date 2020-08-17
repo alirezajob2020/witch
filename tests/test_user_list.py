@@ -54,10 +54,15 @@ class TestUser(LocalApplicationTestCase):
             assert status == 401
 
             when('Trying to sorting response', query=dict(sort='id'))
-            assert response.json[0]['id'] < response.json[1]['id']
-            assert response.json[1]['id'] < response.json[2]['id']
+            assert len(response.json) == 3
+            index = 1
+            while index < len(response.json):
+                assert response.json[index - 1]['id'] < \
+                   response.json[index]['id']
+                index += 1
 
             when('Sorting the response descending', query=dict(sort='-id'))
+            assert len(response.json) == 3
             assert response.json[0]['id'] > response.json[1]['id']
             assert response.json[0]['id'] > response.json[1]['id']
 
@@ -70,5 +75,8 @@ class TestUser(LocalApplicationTestCase):
             when('Trying filtering response', query=dict(id=1))
             assert response.json[0]['id'] == 1
             assert len(response.json) == 1
+
+            when('Request is not authorized', authorization=None)
+            assert status == 401
 
         self.logout()

@@ -1,6 +1,7 @@
 import re
 
-from nanohttp import json, HTTPNotFound, validate, int_or_notfound, context
+from nanohttp import json, HTTPNotFound, HTTPForbidden, validate, \
+    int_or_notfound, context
 from restfulpy.authorization import authorize
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
@@ -59,18 +60,10 @@ class UserController(ModelRestController):
         title = context.form.get('title')
         email = context.form.get('email')
 
-        user = DBSession.query(User) \
-            .filter(User.title == title) \
-            .one_or_none()
-
-        if user is not None:
+        if DBSession.query(User).filter(User.title == title).count():
             raise StatusRepetitiveTitle()
 
-        user = DBSession.query(User) \
-            .filter(User.email == email) \
-            .one_or_none()
-
-        if user is not None:
+        if DBSession.query(User).filter(User.email == email).count():
             raise StatusRepetitiveEmail()
 
         user = User()
@@ -82,7 +75,100 @@ class UserController(ModelRestController):
 
     @authorize
     @json
+    def get(self, id):
+        id = int_or_notfound(id)
+        user = DBSession.query(User).get(id)
+
+        if not user:
+            raise HTTPNotFound()
+
+        return user
+
+    @authorize
+    @json
     @User.expose
     def list(self):
         users = DBSession.query(User)
         return users
+
+    @authorize
+    @json
+    @validate(
+        title=dict(
+            type_=(str, StatusInvalidStringType),
+            min_length=(3, StatusTitleLengthInvalid),
+            max_length=(256, StatusTitleLengthInvalid),
+            not_none=StatusTitleIsNull,
+        ),
+        firstName=dict(
+            not_none=StatusFirstnameIsNull,
+        ),
+        lastName=dict(
+            not_none=StatusLastnameIsNull,
+        ),
+        birthDate=dict(
+            pattern=(DATETIME_PATTERN, StatusInvalidDateFormat),
+        ),
+        email=dict(
+            not_none=StatusEmailIsNull,
+            pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
+        ),
+    )
+    @commit
+    def update(self, id):
+        id = int_or_notfound(id)
+        current_user_id = context.identity.payload['id']
+
+        if id != current_user_id:
+            raise HTTPForbidden()
+
+        user = DBSession.query(User) \
+            .filter(User.id == id) \
+            .one_or_none()
+
+        if user is None:
+            raise HTTPNotFound()
+
+        user_title_check = DBSession.query(User) \
+            .filter(
+            User.id != id,
+            User.title == context.form.get('title'),
+        ) \
+            .one_or_none()
+
+        if user_title_check is not None:
+            raise StatusRepetitiveTitle()
+
+        user_email_check = DBSession.query(User) \
+            .filter(
+            User.id != id,
+            User.email == context.form.get('email')
+        ) \
+            .one_or_none()
+
+        if user_email_check is not None:
+            raise StatusRepetitiveEmail()
+
+        user.update_from_request()
+        return user
+
+    @authorize
+    @json
+    @commit
+    def delete(self, id):
+        id = int_or_notfound(id)
+
+        user = DBSession.query(User).get(id)
+
+        if user is None:
+            raise HTTPNotFound()
+        else:
+            DBSession.delete(user)
+
+        return user
+
+    @authorize
+    @json
+    def test(self):
+        return context.identity.payload
+
