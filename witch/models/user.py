@@ -1,15 +1,17 @@
 import os
 import uuid
 from hashlib import sha256
-from datetime import datetime
+from datetime import datetime, timedelta, date, time
 
 from cas import CASPrincipal
 from nanohttp import context, settings, HTTPStatus
 from restfulpy.orm import DeclarativeBase, Field, DBSession, relationship, \
     OrderingMixin, FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
-from sqlalchemy import Unicode, Integer, JSON, Date, UniqueConstraint, String
-from sqlalchemy.orm import synonym
+from sqlalchemy import Integer, ForeignKey, Enum, select, func, bindparam, \
+    case, join, and_, exists, DateTime, Boolean, all_, any_, String, \
+    UniqueConstraint, Date, Unicode
+from sqlalchemy.orm import synonym, column_property
 
 
 class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
@@ -34,8 +36,8 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         String(50),
     )
     birth_date = Field(
-        Date,
-        python_type=datetime.date,
+        DateTime,
+        python_type=datetime,
         label='Birth Date',
         pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
         pattern_description='ISO format like "yyyy-mm-dd" is valid',
@@ -45,6 +47,10 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         not_none=False,
         required=False,
         readonly=False,
+    )
+
+    age = column_property(
+        ((func.date(func.now()) - birth_date.label('age')) / 365) + ''
     )
     email = Field(
         String,

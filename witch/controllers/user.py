@@ -1,4 +1,5 @@
 import re
+from datetime import datetime, timedelta, date, time
 
 from nanohttp import json, HTTPNotFound, HTTPForbidden, validate, \
     int_or_notfound, context
@@ -73,7 +74,7 @@ class UserController(ModelRestController):
         context.application.__authenticator__.setup_response_headers(principal)
         return user
 
-    @authorize
+    # @authorize
     @json
     def get(self, id):
         id = int_or_notfound(id)
@@ -131,9 +132,9 @@ class UserController(ModelRestController):
 
         user_title_check = DBSession.query(User) \
             .filter(
-            User.id != id,
-            User.title == context.form.get('title'),
-        ) \
+                User.id != id,
+                User.title == context.form.get('title'),
+            ) \
             .one_or_none()
 
         if user_title_check is not None:
@@ -141,9 +142,9 @@ class UserController(ModelRestController):
 
         user_email_check = DBSession.query(User) \
             .filter(
-            User.id != id,
-            User.email == context.form.get('email')
-        ) \
+                User.id != id,
+                User.email == context.form.get('email')
+            ) \
             .one_or_none()
 
         if user_email_check is not None:
@@ -166,4 +167,3 @@ class UserController(ModelRestController):
             DBSession.delete(user)
 
         return user
-    
