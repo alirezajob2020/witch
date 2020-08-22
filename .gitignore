@@ -2,3 +2,7 @@
 .pytest_cache
 data
 witch.egg-info
+witch/__pycache__
+witch/controllers/__pycache__
+witch/models/__pycache__
+__pycache__
