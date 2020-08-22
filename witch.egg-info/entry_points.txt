@@ -1,3 +1,0 @@
-[console_scripts]
-witch = witch:witch.cli_main
-
