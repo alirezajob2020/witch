@@ -1,16 +1,14 @@
 import os
 import uuid
+from datetime import datetime
 from hashlib import sha256
-from datetime import datetime, timedelta, date, time
 
 from cas import CASPrincipal
-from nanohttp import context, settings, HTTPStatus
-from restfulpy.orm import DeclarativeBase, Field, DBSession, relationship, \
-    OrderingMixin, FilteringMixin, PaginationMixin
+from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
+    FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
-from sqlalchemy import Integer, ForeignKey, Enum, select, func, bindparam, \
-    case, join, and_, exists, DateTime, Boolean, all_, any_, String, \
-    UniqueConstraint, Date, Unicode
+from sqlalchemy import Integer, func, DateTime, String, \
+    Unicode
 from sqlalchemy.orm import synonym, column_property
 
 
@@ -81,7 +79,6 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         salt = salt.hexdigest()
 
         hashed_pass = sha256()
-        # Make sure password is a str because we cannot hash unicode objects
         hashed_pass.update((password + salt).encode('utf-8'))
         hashed_pass = hashed_pass.hexdigest()
 
