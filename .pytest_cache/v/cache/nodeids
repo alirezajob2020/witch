@@ -1,0 +1,4 @@
+[
+  "tests/test_token_create.py::TestToken::test_create",
+  "tests/test_user_create.py::TestUser::test_create"
+]

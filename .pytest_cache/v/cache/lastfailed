@@ -1,0 +1,4 @@
+{
+  "tests/test_token_create.py::TestToken::test_create": true,
+  "tests/test_user_add.py::test_add": true
+}
