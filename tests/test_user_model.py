@@ -1,10 +1,7 @@
 from datetime import datetime, timedelta
 
-from nanohttp import settings
-from nanohttp import context
 from nanohttp.contexts import Context
 from restfulpy.testing import db
-from auditor.context import Context as AuditLogContext
 
 from witch.models.user import User
 
