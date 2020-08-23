@@ -1,16 +1,14 @@
 import os
 import uuid
+from datetime import datetime
 from hashlib import sha256
-from datetime import datetime, timedelta, date, time
 
-from cas import CASPrincipal
-from nanohttp import context, settings, HTTPStatus
-from restfulpy.orm import DeclarativeBase, Field, DBSession, relationship, \
-    OrderingMixin, FilteringMixin, PaginationMixin
+from restfulpy.principal import JWTPrincipal
+from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
+    FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
-from sqlalchemy import Integer, ForeignKey, Enum, select, func, bindparam, \
-    case, join, and_, exists, DateTime, Boolean, all_, any_, String, \
-    UniqueConstraint, Date, Unicode
+from sqlalchemy import Integer, func, DateTime, String, \
+    Unicode
 from sqlalchemy.orm import synonym, column_property
 
 
@@ -20,40 +18,61 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     id = Field(
         Integer,
         primary_key=True,
-        readonly=True,
+        unique=True,
+        required=True,
         not_none=True,
-        required=False,
+        readonly=True,
         label='ID',
         minimum=1,
     )
     title = Field(
         String(50)
+        required=True,
+        not_none=True,
+        readonly=False,
+        label='Title',
+        example='alitk',
     )
     first_name = Field(
         String(50),
+        required=True,
+        not_none=True,
+        readonly=False,
+        label='First Name',
+        example='alireza',
     )
     last_name = Field(
         String(50),
+        required=True,
+        not_none=True,
+        readonly=False,
+        label='Last Name',
+        example='tavakoli',
     )
     birth_date = Field(
         DateTime,
         python_type=datetime,
-        label='Birth Date',
-        pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
-        pattern_description='ISO format like "yyyy-mm-dd" is valid',
-        example='2018-02-02',
-        watermark='Lorem Ipsum',
-        nullable=True,
         not_none=False,
         required=False,
         readonly=False,
+        nullable=True,
+        pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
+        pattern_description='ISO format like "yyyy-mm-dd" is valid',
+        watermark='Lorem Ipsum',
+        label='Birth Date',
+        example='2018-02-02',
     )
 
     age = column_property(
-        ((func.date(func.now()) - birth_date.label('age')) / 365) + ''
+        ((func.date(func.now()) - birth_date.label('age')) / 365)
     )
     email = Field(
         String,
+        required=True,
+        not_none=True,
+        readonly=False,
+        label='Email',
+        example='alitk@gmail.com',
     )
     _password = Field(
         'password',
@@ -63,7 +82,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         json='password',
         pattern=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+$',
         pattern_description='Password must include at least one uppercase, one'
-                            'lowercase and one number',
+            'lowercase and one number',
         example='ABCabc123',
         watermark=None,
         label='Password',
@@ -81,7 +100,6 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         salt = salt.hexdigest()
 
         hashed_pass = sha256()
-        # Make sure password is a str because we cannot hash unicode objects
         hashed_pass.update((password + salt).encode('utf-8'))
         hashed_pass = hashed_pass.hexdigest()
 
@@ -103,7 +121,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     )
 
     def create_jwt_principal(self):
-        return CASPrincipal({
+        return JWTPrincipal({
             'id': self.id,
             'title': self.title,
             'email': self.email,
@@ -118,5 +136,5 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     def validate_password(self, password):
         hashed_pass = sha256()
         hashed_pass.update((password + self.password[:64]).encode('utf-8'))
-
         return self.password[64:] == hashed_pass.hexdigest()
+
