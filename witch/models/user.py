@@ -26,7 +26,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         minimum=1,
     )
     title = Field(
-        String(50)
+        String(50),
         required=True,
         not_none=True,
         readonly=False,
