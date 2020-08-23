@@ -158,3 +158,4 @@ class UserController(ModelRestController):
 
         DBSession.delete(user)
         return user
+
