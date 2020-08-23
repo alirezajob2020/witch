@@ -1,12 +1,10 @@
 import re
-from datetime import datetime, timedelta, date, time
 
 from nanohttp import json, HTTPNotFound, HTTPForbidden, validate, \
     int_or_notfound, context
 from restfulpy.authorization import authorize
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
-from sqlalchemy import exists, and_, or_
 
 from witch.models.user import User
 from ..exceptions import *
@@ -74,7 +72,7 @@ class UserController(ModelRestController):
         context.application.__authenticator__.setup_response_headers(principal)
         return user
 
-    # @authorize
+    @authorize
     @json
     def get(self, id):
         id = int_or_notfound(id)
