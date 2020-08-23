@@ -18,9 +18,10 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     id = Field(
         Integer,
         primary_key=True,
-        readonly=True,
-        required=False,
+        unique=True,
+        required=True,
         not_none=True,
+        readonly=True,
         label='ID',
         minimum=1,
     )
@@ -30,6 +31,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         not_none=True,
         readonly=False,
         label='Title',
+        example='alitk',
     )
     first_name = Field(
         String(50),
@@ -37,6 +39,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         not_none=True,
         readonly=False,
         label='First Name',
+        example='alireza',
     )
     last_name = Field(
         String(50),
@@ -44,19 +47,20 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         not_none=True,
         readonly=False,
         label='Last Name',
+        example='tavakoli',
     )
     birth_date = Field(
         DateTime,
         python_type=datetime,
-        pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
-        pattern_description='ISO format like "yyyy-mm-dd" is valid',
-        example='2018-02-02',
-        watermark='Lorem Ipsum',
-        nullable=True,
         not_none=False,
         required=False,
         readonly=False,
+        nullable=True,
+        pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
+        pattern_description='ISO format like "yyyy-mm-dd" is valid',
+        watermark='Lorem Ipsum',
         label='Birth Date',
+        example='2018-02-02',
     )
 
     age = column_property(
@@ -68,6 +72,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         not_none=True,
         readonly=False,
         label='Email',
+        example='alitk@gmail.com',
     )
     _password = Field(
         'password',
