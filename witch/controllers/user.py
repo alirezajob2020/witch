@@ -1,12 +1,10 @@
 import re
-from datetime import datetime, timedelta, date, time
 
 from nanohttp import json, HTTPNotFound, HTTPForbidden, validate, \
     int_or_notfound, context
 from restfulpy.authorization import authorize
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
-from sqlalchemy import exists, and_, or_
 
 from witch.models.user import User
 from ..exceptions import *
@@ -58,13 +56,18 @@ class UserController(ModelRestController):
     )
     @commit
     def create(self):
-        title = context.form.get('title')
-        email = context.form.get('email')
-
-        if DBSession.query(User).filter(User.title == title).count():
+        user_title_check = DBSession.query(User) \
+            .filter(User.id != id) \
+            .filter(User.title == context.form.get('title')) \
+            .one_or_none()
+        if user_title_check is not None:
             raise StatusRepetitiveTitle()
 
-        if DBSession.query(User).filter(User.email == email).count():
+        user_email_check = DBSession.query(User) \
+            .filter(User.id != id) \
+            .filter(User.email == context.form.get('email')) \
+            .one_or_none()
+        if user_email_check is not None:
             raise StatusRepetitiveEmail()
 
         user = User()
@@ -74,13 +77,12 @@ class UserController(ModelRestController):
         context.application.__authenticator__.setup_response_headers(principal)
         return user
 
-    # @authorize
+    @authorize
     @json
     def get(self, id):
         id = int_or_notfound(id)
         user = DBSession.query(User).get(id)
-
-        if not user:
+        if user is None:
             raise HTTPNotFound()
 
         return user
@@ -119,34 +121,26 @@ class UserController(ModelRestController):
     def update(self, id):
         id = int_or_notfound(id)
         current_user_id = context.identity.payload['id']
-
         if id != current_user_id:
             raise HTTPForbidden()
 
         user = DBSession.query(User) \
             .filter(User.id == id) \
             .one_or_none()
-
         if user is None:
             raise HTTPNotFound()
 
         user_title_check = DBSession.query(User) \
-            .filter(
-                User.id != id,
-                User.title == context.form.get('title'),
-            ) \
+            .filter(User.id != id) \
+            .filter(User.title == context.form.get('title')) \
             .one_or_none()
-
         if user_title_check is not None:
             raise StatusRepetitiveTitle()
 
         user_email_check = DBSession.query(User) \
-            .filter(
-                User.id != id,
-                User.email == context.form.get('email')
-            ) \
+            .filter(User.id != id) \
+            .filter(User.email == context.form.get('email')) \
             .one_or_none()
-
         if user_email_check is not None:
             raise StatusRepetitiveEmail()
 
@@ -158,12 +152,10 @@ class UserController(ModelRestController):
     @commit
     def delete(self, id):
         id = int_or_notfound(id)
-
         user = DBSession.query(User).get(id)
-
         if user is None:
             raise HTTPNotFound()
-        else:
-            DBSession.delete(user)
 
+        DBSession.delete(user)
         return user
+
