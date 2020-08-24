@@ -1,10 +1,11 @@
-from os.path import dirname, join
+from os.path import dirname
 import functools
 
 from nanohttp import settings
 from restfulpy import Application
 from sqlalchemy_media import StoreManager, FileSystemStore
 
+from . import basedata
 from .authentication import Authenticator
 from .controllers.root import Root
 
@@ -95,6 +96,9 @@ class Witch(Application):
             root_path=dirname(__file__),
             version=__version__
         )
+
+    def insert_basedata(self, *args):  # pragma: no cover
+        basedata.insert()
 
     @classmethod
     def initialize_orm(cls, engine=None):
