@@ -11,10 +11,9 @@ def insert():
         last_name='godian',
         birth_date='1-1-1',
         email='god@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(god)
-    DBSession.flush()
 
     user = User(
         title='alitk',
@@ -22,10 +21,9 @@ def insert():
         last_name='tavakoli',
         birth_date='1993-4-16',
         email='ali@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='hamiid',
@@ -33,10 +31,9 @@ def insert():
         last_name='jacob',
         birth_date='1996-9-1',
         email='famil@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='rez',
@@ -44,10 +41,9 @@ def insert():
         last_name='ebrahimi',
         birth_date='1994-4-4',
         email='reza@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='mamad',
@@ -55,10 +51,9 @@ def insert():
         last_name='javadi',
         birth_date='1994-7-21',
         email='mamad@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='milawd',
@@ -66,10 +61,9 @@ def insert():
         last_name='ameri',
         birth_date='1994-3-1',
         email='milad@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='behroooz',
@@ -77,10 +71,9 @@ def insert():
         last_name='pashaei',
         birth_date='1994-4-4',
         email='behrouz@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='javati',
@@ -88,10 +81,9 @@ def insert():
         last_name='hashemi',
         birth_date='1993-6-25',
         email='javad@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='alifamil',
@@ -99,10 +91,9 @@ def insert():
         last_name='famil',
         birth_date='1996-6-25',
         email='famil@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
 
     user = User(
         title='mehranii',
@@ -110,11 +101,9 @@ def insert():
         last_name='rezvani',
         birth_date='1996-6-25',
         email='famil@example.com',
-        password='123456',
+        password='Abc123Rew',
     )
     DBSession.add(user)
-    DBSession.flush()
-
     DBSession.commit()
 
     print('Following user has been added:')
