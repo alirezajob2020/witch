@@ -5,7 +5,7 @@ from nanohttp import settings
 from restfulpy import Application
 from sqlalchemy_media import StoreManager, FileSystemStore
 
-from . import mockup
+from . import basedata
 from .authentication import Authenticator
 from .controllers.root import Root
 
@@ -97,8 +97,8 @@ class Witch(Application):
             version=__version__
         )
 
-    def insert_mockup(self, *args):  # pragma: no cover
-        mockup.insert()
+    def insert_basedata(self, *args):
+        basedata.insert()
 
     @classmethod
     def initialize_orm(cls, engine=None):
