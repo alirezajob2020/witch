@@ -9,4 +9,3 @@ class TestDatabaseCLI(LocalApplicationTestCase):
         session = self.create_session()
 
         assert session.query(User).count() == 20
- 
