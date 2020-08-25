@@ -6,6 +6,7 @@ from restfulpy import Application
 from sqlalchemy_media import StoreManager, FileSystemStore
 
 from . import basedata
+from . import mockup
 from .authentication import Authenticator
 from .controllers.root import Root
 
@@ -99,6 +100,9 @@ class Witch(Application):
 
     def insert_basedata(self, *args):
         basedata.insert()
+
+    def insert_mockup(self, *args):
+        mockup.insert()
 
     @classmethod
     def initialize_orm(cls, engine=None):
