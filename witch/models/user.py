@@ -27,6 +27,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     )
     title = Field(
         String(50),
+        unique=True,
         required=True,
         not_none=True,
         readonly=False,
@@ -68,6 +69,7 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     )
     email = Field(
         String,
+        unique=True,
         required=True,
         not_none=True,
         readonly=False,
