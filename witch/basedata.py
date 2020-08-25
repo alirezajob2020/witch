@@ -109,3 +109,4 @@ def insert():
 
     print('Following user has been added:')
     print(god)
+
