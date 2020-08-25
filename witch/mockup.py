@@ -207,4 +207,3 @@ def insert():
     DBSession.add(user20)
     DBSession.commit()
 
-
