@@ -6,7 +6,6 @@ from witch.models.user import User
 
 
 def insert():
-
     god = User(
         title='GOD',
         first_name='god',
@@ -86,7 +85,6 @@ def insert():
         password='Abc123Rew',
     )
     DBSession.add(user7)
-
 
     user8 = User(
         title='alifamil',
