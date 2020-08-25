@@ -1,85 +1,86 @@
+from datetime import datetime
+
 from restfulpy.orm import DBSession
 
 from witch.models.user import User
 
 
 def insert():
-
     god = User(
         title='GOD',
         first_name='god',
         last_name='godian',
-        birth_date='1-1-1',
+        birth_date=datetime.now() - 1000,
         email='god@example.com',
         password='Abc123Rew',
     )
     DBSession.add(god)
 
-    user = User(
+    user1 = User(
         title='alitk',
         first_name='alireza',
         last_name='tavakoli',
-        birth_date='1993-4-16',
+        birth_date=datetime.now() - 1000,
         email='ali@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user1)
 
-    user = User(
+    user2 = User(
         title='hamiid',
         first_name='hamid',
         last_name='jacob',
-        birth_date='1996-9-1',
+        birth_date=datetime.now() - 1000,
         email='famil@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user2)
 
-    user = User(
+    user3 = User(
         title='rez',
         first_name='reza',
         last_name='ebrahimi',
-        birth_date='1994-4-4',
+        birth_date=datetime.now() - 1000,
         email='reza@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user3)
 
-    user = User(
+    user4 = User(
         title='mamad',
         first_name='mohammad',
         last_name='javadi',
-        birth_date='1994-7-21',
+        birth_date=datetime.now() - 1000,
         email='mamad@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user4)
 
-    user = User(
+    user5 = User(
         title='milawd',
         first_name='milad',
         last_name='ameri',
-        birth_date='1994-3-1',
+        birth_date=datetime.now() - 1000,
         email='milad@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user5)
 
-    user = User(
+    user6 = User(
         title='behroooz',
         first_name='behrouz',
         last_name='pashaei',
-        birth_date='1994-4-4',
+        birth_date=datetime.now() - 1000,
         email='behrouz@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user6)
 
     user = User(
         title='javati',
         first_name='javad',
         last_name='hashemi',
-        birth_date='1993-6-25',
+        birth_date=datetime.now() - 1000,
         email='javad@example.com',
         password='Abc123Rew',
     )
@@ -89,7 +90,7 @@ def insert():
         title='alifamil',
         first_name='ali',
         last_name='famil',
-        birth_date='1996-6-25',
+        birth_date=datetime.now() - 1000,
         email='famil@example.com',
         password='Abc123Rew',
     )
@@ -99,7 +100,7 @@ def insert():
         title='mehranii',
         first_name='mehran',
         last_name='rezvani',
-        birth_date='1996-6-25',
+        birth_date=datetime.now() - 1000,
         email='famil@example.com',
         password='Abc123Rew',
     )
