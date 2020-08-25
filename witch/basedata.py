@@ -11,97 +11,97 @@ def insert():
         first_name='god',
         last_name='godian',
         birth_date=datetime(1, 1, 1),
-        email='god@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(god)
 
     user1 = User(
-        title='alitk',
-        first_name='alireza',
-        last_name='tavakoli',
+        title='user1',
+        first_name='user1',
+        last_name='family user1',
         birth_date=datetime(2000, 5, 2),
-        email='ali@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user1)
 
     user2 = User(
-        title='hamiid',
-        first_name='hamid',
-        last_name='jacob',
+        title='user2',
+        first_name='user2',
+        last_name='family user1',
         birth_date=datetime(2000, 5, 2),
-        email='famil@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user2)
 
     user3 = User(
-        title='rez',
-        first_name='reza',
-        last_name='ebrahimi',
+        title='user3',
+        first_name='user3',
+        last_name='family user3',
         birth_date=datetime(2000, 5, 2),
-        email='reza@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user3)
 
     user4 = User(
-        title='mamad',
-        first_name='mohammad',
-        last_name='javadi',
+        title='user4',
+        first_name='user4',
+        last_name='family user4',
         birth_date=datetime(2000, 5, 2),
-        email='mamad@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user4)
 
     user5 = User(
-        title='milawd',
-        first_name='milad',
-        last_name='ameri',
+        title='user5',
+        first_name='user5',
+        last_name='family user5',
         birth_date=datetime(2000, 5, 2),
-        email='milad@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user5)
 
     user6 = User(
-        title='behroooz',
-        first_name='behrouz',
-        last_name='pashaei',
+        title='user6',
+        first_name='user6',
+        last_name='family user6',
         birth_date=datetime(2000, 5, 2),
-        email='behrouz@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user6)
 
     user7 = User(
-        title='javati',
-        first_name='javad',
-        last_name='hashemi',
+        title='user7',
+        first_name='user7',
+        last_name='family user7',
         birth_date=datetime(2000, 5, 2),
-        email='javad@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user7)
 
     user8 = User(
-        title='alifamil',
-        first_name='ali',
-        last_name='famil',
+        title='user8',
+        first_name='user8',
+        last_name='family user8',
         birth_date=datetime(2000, 5, 2),
-        email='famil@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user8)
 
     user9 = User(
-        title='mehranii',
-        first_name='mehran',
-        last_name='rezvani',
+        title='user9',
+        first_name='user9',
+        last_name='family user9',
         birth_date=datetime(2000, 5, 2),
-        email='famil@example.com',
+        email='user@example.com',
         password='Abc123Rew',
     )
     DBSession.add(user9)
