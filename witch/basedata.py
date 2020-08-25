@@ -6,6 +6,7 @@ from witch.models.user import User
 
 
 def insert():
+
     god = User(
         title='GOD',
         first_name='god',
@@ -76,7 +77,7 @@ def insert():
     )
     DBSession.add(user6)
 
-    user = User(
+    user7 = User(
         title='javati',
         first_name='javad',
         last_name='hashemi',
@@ -84,9 +85,9 @@ def insert():
         email='javad@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user7)
 
-    user = User(
+    user8 = User(
         title='alifamil',
         first_name='ali',
         last_name='famil',
@@ -94,9 +95,9 @@ def insert():
         email='famil@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user8)
 
-    user = User(
+    user9 = User(
         title='mehranii',
         first_name='mehran',
         last_name='rezvani',
@@ -104,9 +105,8 @@ def insert():
         email='famil@example.com',
         password='Abc123Rew',
     )
-    DBSession.add(user)
+    DBSession.add(user9)
     DBSession.commit()
 
     print('Following user has been added:')
     print(god)
-
