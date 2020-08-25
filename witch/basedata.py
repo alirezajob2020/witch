@@ -87,6 +87,7 @@ def insert():
     )
     DBSession.add(user7)
 
+
     user8 = User(
         title='alifamil',
         first_name='ali',
