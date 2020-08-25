@@ -10,7 +10,7 @@ def insert():
         title='GOD',
         first_name='god',
         last_name='godian',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(1, 1, 1),
         email='god@example.com',
         password='Abc123Rew',
     )
@@ -20,7 +20,7 @@ def insert():
         title='alitk',
         first_name='alireza',
         last_name='tavakoli',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='ali@example.com',
         password='Abc123Rew',
     )
@@ -30,7 +30,7 @@ def insert():
         title='hamiid',
         first_name='hamid',
         last_name='jacob',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='famil@example.com',
         password='Abc123Rew',
     )
@@ -40,7 +40,7 @@ def insert():
         title='rez',
         first_name='reza',
         last_name='ebrahimi',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='reza@example.com',
         password='Abc123Rew',
     )
@@ -50,7 +50,7 @@ def insert():
         title='mamad',
         first_name='mohammad',
         last_name='javadi',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='mamad@example.com',
         password='Abc123Rew',
     )
@@ -60,7 +60,7 @@ def insert():
         title='milawd',
         first_name='milad',
         last_name='ameri',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='milad@example.com',
         password='Abc123Rew',
     )
@@ -70,7 +70,7 @@ def insert():
         title='behroooz',
         first_name='behrouz',
         last_name='pashaei',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='behrouz@example.com',
         password='Abc123Rew',
     )
@@ -80,7 +80,7 @@ def insert():
         title='javati',
         first_name='javad',
         last_name='hashemi',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='javad@example.com',
         password='Abc123Rew',
     )
@@ -90,7 +90,7 @@ def insert():
         title='alifamil',
         first_name='ali',
         last_name='famil',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='famil@example.com',
         password='Abc123Rew',
     )
@@ -100,7 +100,7 @@ def insert():
         title='mehranii',
         first_name='mehran',
         last_name='rezvani',
-        birth_date=datetime.now() - 1000,
+        birth_date=datetime(2000, 5, 2),
         email='famil@example.com',
         password='Abc123Rew',
     )
