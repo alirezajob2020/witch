@@ -12,4 +12,3 @@ class TestDatabaseCLI(LocalApplicationTestCase):
         assert session.query(User).filter(User.title == 'GOD').one()
         assert session.query(User).count() == 10
         
-      
