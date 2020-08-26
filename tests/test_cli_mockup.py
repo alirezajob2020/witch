@@ -8,5 +8,5 @@ class TestDatabaseCLI(LocalApplicationTestCase):
         self.__application__.insert_mockup()
         session = self.create_session()
 
-        assert session.query(User).count() == 20
+        assert session.query(User).count() == 10
 
