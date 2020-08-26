@@ -57,14 +57,12 @@ class UserController(ModelRestController):
     @commit
     def create(self):
         user_title_check = DBSession.query(User) \
-            .filter(User.id != id) \
             .filter(User.title == context.form.get('title')) \
             .one_or_none()
         if user_title_check is not None:
             raise StatusRepetitiveTitle()
 
         user_email_check = DBSession.query(User) \
-            .filter(User.id != id) \
             .filter(User.email == context.form.get('email')) \
             .one_or_none()
         if user_email_check is not None:
