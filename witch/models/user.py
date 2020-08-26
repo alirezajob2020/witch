@@ -1,6 +1,6 @@
 import os
 import uuid
-from datetime import datetime
+import datetime
 from hashlib import sha256
 
 from restfulpy.principal import JWTPrincipal
@@ -61,9 +61,8 @@ class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         pattern_description='ISO format like "yyyy-mm-dd" is valid',
         watermark='Lorem Ipsum',
         label='Birth Date',
-        example='2018-02-02',
+        example='2018-02-02 00:00:00',
     )
-
     age = column_property(
         ((func.date(func.now()) - birth_date.label('age')) / 365)
     )

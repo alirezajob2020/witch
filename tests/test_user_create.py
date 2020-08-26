@@ -6,11 +6,11 @@ from tests.helpers import LocalApplicationTestCase
 class TestUser(LocalApplicationTestCase):
 
     def test_create(self):
-        title = 'qweqweqwe'
-        first_name = 'asdasfdsasdd'
-        last_name = 'zxczxczxcasdv'
-        birth_date = '1972-2-2'
-        email = 'mohsen@msnaa.com'
+        title = 'alitk777'
+        first_name = 'alireza'
+        last_name = 'tavakoli'
+        birth_date = '1970-2-2'
+        email = 'alitk777@msn.com'
         password = 'Alitk123123'
 
         with self.given(
@@ -54,7 +54,7 @@ class TestUser(LocalApplicationTestCase):
                 json=given | dict(title='a' * 258)
             )
             assert status == '400 Title Length Must Be Greater Than 3 ' \
-                             'Characters and Less than 256 Character'
+                'Characters and Less than 256 Character'
 
             when(
                 'Trying to pass null firstname',
