@@ -21,7 +21,7 @@ class TestMember(LocalApplicationTestCase):
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
-                    # birthDate=birth_date,
+                    birthDate=birth_date,
                     email=email,
                     password=password,
                 ),
@@ -31,7 +31,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['title'] == title
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
-            # assert response.json['birthDate'] == birth_date
+            assert response.json['birthDate'] == birth_date
             assert response.json['email'] == email
 
             when('Trying to pass without form parameters', json={})
