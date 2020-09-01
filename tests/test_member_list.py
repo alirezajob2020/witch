@@ -10,32 +10,32 @@ class TestMember(LocalApplicationTestCase):
     def mockup(cls):
         session = cls.create_session()
 
-        user1 = Member(
+        member1 = Member(
             email='alireza@msn.com',
             title='alitk777',
             first_name='alirezaa2',
             last_name='tavakoli1',
             password='ABc123123',
         )
-        session.add(user1)
+        session.add(member1)
 
-        user2 = Member(
+        member2 = Member(
             email='alireza1@msn.com',
             title='alitk778',
             first_name='alizaaaaa',
             last_name='tavakoliiii',
             password='ABc1231234',
         )
-        session.add(user2)
+        session.add(member2)
 
-        user3 = Member(
+        member3 = Member(
             email='alireza2@msn.com',
             title='alitk779',
             first_name='ali',
             last_name='tavakoliiii',
             password='ABc1231232',
         )
-        session.add(user3)
+        session.add(member3)
 
         session.commit()
 
@@ -43,7 +43,7 @@ class TestMember(LocalApplicationTestCase):
         self.login(email='alireza@msn.com', password='ABc123123')
 
         with self.given(
-                'get users list',
+                'get members list',
                 '/apiv1/members',
                 'LIST',
         ):

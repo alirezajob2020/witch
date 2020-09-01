@@ -9,7 +9,7 @@ from witch.models.member import Member
 def test_age(db):
     session = db()
 
-    user1 = Member(
+    member1 = Member(
         title='alireza',
         email='alitk@gmail.com',
         first_name='ali',
@@ -18,7 +18,8 @@ def test_age(db):
         password='Ali123',
     )
 
-    session.add(user1)
+    session.add(member1)
     session.commit()
 
-    user1 = session.query(Member).filter(Member.id == user1.id)
+    member1 = session.query(Member).filter(Member.id == member1.id)
+

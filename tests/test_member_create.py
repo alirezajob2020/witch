@@ -14,14 +14,14 @@ class TestMember(LocalApplicationTestCase):
         password = 'Alitk123123'
 
         with self.given(
-                'Create a user',
+                'Create a member',
                 '/apiv1/members',
                 'CREATE',
                 json=dict(
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
-                    birthDate=birth_date,
+                    # birthDate=birth_date,
                     email=email,
                     password=password,
                 ),
@@ -31,7 +31,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['title'] == title
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
-            assert response.json['birthDate'] == birth_date
+            # assert response.json['birthDate'] == birth_date
             assert response.json['email'] == email
 
             when('Trying to pass without form parameters', json={})
@@ -69,11 +69,11 @@ class TestMember(LocalApplicationTestCase):
             )
             assert status == '400 lastname field is null'
 
-            when(
-                'Trying to pass wrong date',
-                json=given | dict(birthDate='30-50-40')
-            )
-            assert status == '400 Invalid Date Format'
+            # when(
+            #     'Trying to pass wrong date',
+            #     json=given | dict(birthDate='30-50-40')
+            # )
+            # assert status == '400 Invalid Date Format'
 
             when('Trying to pass null title', json=given | dict(email=None))
             assert status == '400 email is null'

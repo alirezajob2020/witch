@@ -10,43 +10,43 @@ class TestMember(LocalApplicationTestCase):
     def mockup(cls):
         session = cls.create_session()
 
-        cls.user1 = Member(
+        cls.member1 = Member(
             title='mma',
             email='qq@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
             password='Abc123123',
         )
-        session.add(cls.user1)
+        session.add(cls.member1)
 
-        cls.user2 = Member(
+        cls.member2 = Member(
             title='alitkmm',
             email='alireza@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
             password='Abc123123',
         )
-        session.add(cls.user2)
+        session.add(cls.member2)
         session.commit()
 
     def test_update(self):
         self.login(email='qq@msn.com', password='Abc123123')
 
         with self.given(
-                'delete user',
-                f'/apiv1/members/id: {self.user1.id}',
+                'delete member',
+                f'/apiv1/members/id: {self.member1.id}',
                 'DELETE',
         ):
             assert status == 200
-            assert response.json['id'] == self.user1.id
-            assert response.json['title'] == self.user1.title
-            assert response.json['email'] == self.user1.email
-            assert response.json['firstName'] == self.user1.first_name
-            assert response.json['lastName'] == self.user1.last_name
+            assert response.json['id'] == self.member1.id
+            assert response.json['title'] == self.member1.title
+            assert response.json['email'] == self.member1.email
+            assert response.json['firstName'] == self.member1.first_name
+            assert response.json['lastName'] == self.member1.last_name
 
             session = self.create_session()
             assert not session.query(Member) \
-                .filter(Member.id == self.user1.id) \
+                .filter(Member.id == self.member1.id) \
                 .one_or_none()
 
             when('Request is not authorized', authorization=None)

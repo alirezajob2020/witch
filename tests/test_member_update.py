@@ -10,23 +10,23 @@ class TestMember(LocalApplicationTestCase):
     def mockup(cls):
         session = cls.create_session()
 
-        cls.user1 = Member(
+        cls.member1 = Member(
             title='mma',
             email='qq@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
             password='Abc123123',
         )
-        session.add(cls.user1)
+        session.add(cls.member1)
 
-        cls.user2 = Member(
+        cls.member2 = Member(
             title='alitkmm',
             email='alireza@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
             password='Abc123123',
         )
-        session.add(cls.user2)
+        session.add(cls.member2)
         session.commit()
 
     def test_update(self):
@@ -35,18 +35,18 @@ class TestMember(LocalApplicationTestCase):
         title = 'wwqweqas'
         first_name = 'alireza'
         last_name = 'tk'
-        birth_date = '1972-2-2'
+        # birth_date = '1972-2-2'
         email = 'alirezaaa@msn.com'
 
         with self.given(
-                'update user',
-                f'/apiv1/members/id:{self.user1.id}',
+                'update member',
+                f'/apiv1/members/id:{self.member1.id}',
                 'UPDATE',
                 multipart=dict(
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
-                    birthDate=birth_date,
+                    # birthDate=birth_date,
                     email=email,
                 ),
         ):
