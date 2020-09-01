@@ -5,14 +5,14 @@ from restfulpy.authentication import StatefulAuthenticator
 from restfulpy.orm import DBSession
 from sqlalchemy_media import store_manager
 
-from .models.user import User
+from .models.member import Member
 
 
 class Authenticator(StatefulAuthenticator):
 
     @staticmethod
     def safe_member_lookup(condition):
-        member = DBSession.query(User).filter(condition).one_or_none()
+        member = DBSession.query(Member).filter(condition).one_or_none()
 
         if member is None:
             raise HTTPStatus('400 Incorrect Email Or Password')
@@ -36,7 +36,7 @@ class Authenticator(StatefulAuthenticator):
 
     @store_manager(DBSession)
     def create_principal(self, member_id=None, session_id=None):
-        member = self.safe_member_lookup(User.id == member_id)
+        member = self.safe_member_lookup(Member.id == member_id)
         principal = member.create_jwt_principal()
 
         payload = self.get_previous_payload()
@@ -46,12 +46,12 @@ class Authenticator(StatefulAuthenticator):
         return principal
 
     def create_refresh_principal(self, member_id=None):
-        member = self.safe_member_lookup(User.id == member_id)
+        member = self.safe_member_lookup(Member.id == member_id)
         return member.create_refresh_principal()
 
     def validate_credentials(self, credentials):
         email, password = credentials
-        member = self.safe_member_lookup(User.email == email)
+        member = self.safe_member_lookup(Member.email == email)
 
         if not member.validate_password(password):
             return None

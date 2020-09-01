@@ -1,16 +1,16 @@
 from bddrest import status, response, when, given
 
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMember(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
         session = cls.create_session()
 
-        cls.user1 = User(
+        cls.user1 = Member(
             title='mma',
             email='qq@msn.com',
             first_name='alirezaa',
@@ -19,7 +19,7 @@ class TestUser(LocalApplicationTestCase):
         )
         session.add(cls.user1)
 
-        cls.user2 = User(
+        cls.user2 = Member(
             title='alitkmm',
             email='alireza@msn.com',
             first_name='alirezaa',
@@ -33,14 +33,14 @@ class TestUser(LocalApplicationTestCase):
         self.login(email='qq@msn.com', password='Abc123123')
 
         title = 'wwqweqas'
-        email = 'alirezaaa@msn.com'
         first_name = 'alireza'
         last_name = 'tk'
         birth_date = '1972-2-2'
+        email = 'alirezaaa@msn.com'
 
         with self.given(
                 'update user',
-                f'/apiv1/users/id: {self.user1.id}',
+                f'/apiv1/members/id:{self.user1.id}',
                 'UPDATE',
                 multipart=dict(
                     title=title,

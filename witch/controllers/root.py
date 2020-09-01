@@ -5,7 +5,7 @@ from restfulpy.controllers import RootController, RestController, \
     JSONPatchControllerMixin
 
 import witch
-from .user import UserController
+from .member import MemberController
 from .token import TokenController
 
 here = abspath(dirname(__file__))
@@ -13,7 +13,7 @@ attachment_storage = abspath(join(here, '../..', 'data/assets'))
 
 
 class Apiv1(RestController, JSONPatchControllerMixin):
-    users = UserController()
+    members = MemberController()
     tokens = TokenController()
 
     @json

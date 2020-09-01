@@ -1,16 +1,16 @@
 from bddrest import status, response, when, given
 
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMember(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
         session = cls.create_session()
 
-        cls.user1 = User(
+        cls.user1 = Member(
             title='mma',
             email='qq@msn.com',
             first_name='alirezaa',
@@ -19,7 +19,7 @@ class TestUser(LocalApplicationTestCase):
         )
         session.add(cls.user1)
 
-        cls.user2 = User(
+        cls.user2 = Member(
             title='alitkmm',
             email='alireza@msn.com',
             first_name='alirezaa',
@@ -34,7 +34,7 @@ class TestUser(LocalApplicationTestCase):
 
         with self.given(
                 'delete user',
-                f'/apiv1/users/id: {self.user1.id}',
+                f'/apiv1/members/id: {self.user1.id}',
                 'DELETE',
         ):
             assert status == 200
@@ -45,8 +45,8 @@ class TestUser(LocalApplicationTestCase):
             assert response.json['lastName'] == self.user1.last_name
 
             session = self.create_session()
-            assert not session.query(User) \
-                .filter(User.id == self.user1.id) \
+            assert not session.query(Member) \
+                .filter(Member.id == self.user1.id) \
                 .one_or_none()
 
             when('Request is not authorized', authorization=None)

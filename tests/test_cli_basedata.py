@@ -1,4 +1,4 @@
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
@@ -8,6 +8,6 @@ class TestDatabaseCLI(LocalApplicationTestCase):
         self.__application__.insert_basedata()
         session = self.create_session()
 
-        assert session.query(User).filter(User.title == 'GOD').one()
-        assert session.query(User).count() == 10
+        assert session.query(Member).filter(Member.title == 'GOD').one()
+        assert session.query(Member).count() == 10
 

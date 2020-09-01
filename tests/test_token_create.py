@@ -1,6 +1,6 @@
 from bddrest import status, response, when, given
 
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
@@ -8,7 +8,7 @@ class TestToken(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
-        user = User(
+        user = Member(
             email='alireza@msn.com',
             title='alitk777',
             first_name='alirezaa',

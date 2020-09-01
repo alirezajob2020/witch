@@ -2,11 +2,11 @@ from datetime import datetime
 
 from restfulpy.orm import DBSession
 
-from witch.models.user import User
+from witch.models.member import Member
 
 
 def insert():
-    god = User(
+    god = Member(
         title='GOD',
         first_name='god',
         last_name='godian',
@@ -16,7 +16,7 @@ def insert():
     )
     DBSession.add(god)
 
-    user1 = User(
+    user1 = Member(
         title='user1',
         first_name='user1',
         last_name='family user1',
@@ -26,7 +26,7 @@ def insert():
     )
     DBSession.add(user1)
 
-    user2 = User(
+    user2 = Member(
         title='user2',
         first_name='user2',
         last_name='family user1',
@@ -36,7 +36,7 @@ def insert():
     )
     DBSession.add(user2)
 
-    user3 = User(
+    user3 = Member(
         title='user3',
         first_name='user3',
         last_name='family user3',
@@ -46,7 +46,7 @@ def insert():
     )
     DBSession.add(user3)
 
-    user4 = User(
+    user4 = Member(
         title='user4',
         first_name='user4',
         last_name='family user4',
@@ -56,7 +56,7 @@ def insert():
     )
     DBSession.add(user4)
 
-    user5 = User(
+    user5 = Member(
         title='user5',
         first_name='user5',
         last_name='family user5',
@@ -66,7 +66,7 @@ def insert():
     )
     DBSession.add(user5)
 
-    user6 = User(
+    user6 = Member(
         title='user6',
         first_name='user6',
         last_name='family user6',
@@ -76,7 +76,7 @@ def insert():
     )
     DBSession.add(user6)
 
-    user7 = User(
+    user7 = Member(
         title='user7',
         first_name='user7',
         last_name='family user7',
@@ -86,7 +86,7 @@ def insert():
     )
     DBSession.add(user7)
 
-    user8 = User(
+    user8 = Member(
         title='user8',
         first_name='user8',
         last_name='family user8',
@@ -96,7 +96,7 @@ def insert():
     )
     DBSession.add(user8)
 
-    user9 = User(
+    user9 = Member(
         title='user9',
         first_name='user9',
         last_name='family user9',

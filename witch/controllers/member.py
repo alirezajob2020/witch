@@ -6,7 +6,7 @@ from restfulpy.authorization import authorize
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import DBSession, commit
 
-from witch.models.user import User
+from witch.models.member import Member
 from ..exceptions import *
 
 USER_EMAIL_PATTERN = re.compile(
@@ -19,7 +19,7 @@ DATETIME_PATTERN = re.compile(
 USER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 
 
-class UserController(ModelRestController):
+class MemberController(ModelRestController):
 
     @json(
         prevent_empty_form='400 No Parameter Exists In The Form',
@@ -56,19 +56,19 @@ class UserController(ModelRestController):
     )
     @commit
     def create(self):
-        user_title_check = DBSession.query(User) \
-            .filter(User.title == context.form.get('title')) \
+        user_title_check = DBSession.query(Member) \
+            .filter(Member.title == context.form.get('title')) \
             .one_or_none()
         if user_title_check is not None:
             raise StatusRepetitiveTitle()
 
-        user_email_check = DBSession.query(User) \
-            .filter(User.email == context.form.get('email')) \
+        user_email_check = DBSession.query(Member) \
+            .filter(Member.email == context.form.get('email')) \
             .one_or_none()
         if user_email_check is not None:
             raise StatusRepetitiveEmail()
 
-        user = User()
+        user = Member()
         user.update_from_request()
         DBSession.add(user)
         principal = user.create_jwt_principal()
@@ -79,7 +79,7 @@ class UserController(ModelRestController):
     @json
     def get(self, id):
         id = int_or_notfound(id)
-        user = DBSession.query(User).get(id)
+        user = DBSession.query(Member).get(id)
         if user is None:
             raise HTTPNotFound()
 
@@ -87,9 +87,9 @@ class UserController(ModelRestController):
 
     @authorize
     @json
-    @User.expose
+    @Member.expose
     def list(self):
-        users = DBSession.query(User)
+        users = DBSession.query(Member)
         return users
 
     @authorize
@@ -122,22 +122,22 @@ class UserController(ModelRestController):
         if id != current_user_id:
             raise HTTPForbidden()
 
-        user = DBSession.query(User) \
-            .filter(User.id == id) \
+        user = DBSession.query(Member) \
+            .filter(Member.id == id) \
             .one_or_none()
         if user is None:
             raise HTTPNotFound()
 
-        user_title_check = DBSession.query(User) \
-            .filter(User.id != id) \
-            .filter(User.title == context.form.get('title')) \
+        user_title_check = DBSession.query(Member) \
+            .filter(Member.id != id) \
+            .filter(Member.title == context.form.get('title')) \
             .one_or_none()
         if user_title_check is not None:
             raise StatusRepetitiveTitle()
 
-        user_email_check = DBSession.query(User) \
-            .filter(User.id != id) \
-            .filter(User.email == context.form.get('email')) \
+        user_email_check = DBSession.query(Member) \
+            .filter(Member.id != id) \
+            .filter(Member.email == context.form.get('email')) \
             .one_or_none()
         if user_email_check is not None:
             raise StatusRepetitiveEmail()
@@ -150,7 +150,7 @@ class UserController(ModelRestController):
     @commit
     def delete(self, id):
         id = int_or_notfound(id)
-        user = DBSession.query(User).get(id)
+        user = DBSession.query(Member).get(id)
         if user is None:
             raise HTTPNotFound()
 

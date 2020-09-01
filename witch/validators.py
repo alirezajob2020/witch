@@ -5,7 +5,7 @@ from restfulpy.datetimehelpers import parse_datetime
 from restfulpy.orm import DBSession
 
 from .exceptions import *
-from .models import user
+from .models import member
 
 # TITLE_PATTERN = re.compile(r'^(?!\s).*[^\s]$')
 # DATETIME_PATTERN = re.compile(

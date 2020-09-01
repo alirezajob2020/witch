@@ -3,13 +3,13 @@ from datetime import datetime, timedelta
 from nanohttp.contexts import Context
 from restfulpy.testing import db
 
-from witch.models.user import User
+from witch.models.member import Member
 
 
 def test_age(db):
     session = db()
 
-    user1 = User(
+    user1 = Member(
         title='alireza',
         email='alitk@gmail.com',
         first_name='ali',
@@ -21,4 +21,4 @@ def test_age(db):
     session.add(user1)
     session.commit()
 
-    user1 = session.query(User).filter(User.id == user1.id)
+    user1 = session.query(Member).filter(Member.id == user1.id)
