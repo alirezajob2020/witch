@@ -35,7 +35,7 @@ class TestMember(LocalApplicationTestCase):
         title = 'wwqweqas'
         first_name = 'alireza'
         last_name = 'tk'
-        # birth_date = '1972-2-2'
+        birth_date = '1972-2-2'
         email = 'alirezaaa@msn.com'
 
         with self.given(
@@ -46,7 +46,7 @@ class TestMember(LocalApplicationTestCase):
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
-                    # birthDate=birth_date,
+                    birthDate=birth_date,
                     email=email,
                 ),
         ):
