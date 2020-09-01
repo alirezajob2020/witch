@@ -69,11 +69,11 @@ class TestMember(LocalApplicationTestCase):
             )
             assert status == '400 lastname field is null'
 
-            # when(
-            #     'Trying to pass wrong date',
-            #     json=given | dict(birthDate='30-50-40')
-            # )
-            # assert status == '400 Invalid Date Format'
+            when(
+                'Trying to pass wrong date',
+                json=given | dict(birthDate='30-50-40')
+            )
+            assert status == '400 Invalid Date Format'
 
             when('Trying to pass null title', json=given | dict(email=None))
             assert status == '400 email is null'
