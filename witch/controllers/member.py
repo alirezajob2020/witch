@@ -9,14 +9,14 @@ from restfulpy.orm import DBSession, commit
 from witch.models.member import Member
 from ..exceptions import *
 
-USER_EMAIL_PATTERN = re.compile(
+MEMBER_EMAIL_PATTERN = re.compile(
     r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
 )
 DATETIME_PATTERN = re.compile(
     r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])' \
     r'(T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.[0-9]+)?(Z)?)?$'
 )
-USER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
+MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 
 
 class MemberController(ModelRestController):
@@ -44,53 +44,53 @@ class MemberController(ModelRestController):
         email=dict(
             required=StatusEmailIsRequired,
             not_none=StatusEmailIsNull,
-            pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
+            pattern=(MEMBER_EMAIL_PATTERN, StatusInvalidEmailFormat),
         ),
         password=dict(
             required=HTTPPasswordNotInForm,
             not_none=HTTPPasswordIsNull,
             min_length=(6, HTTPPasswordInvalidLength),
             max_length=(20, HTTPPasswordInvalidLength),
-            pattern=(USER_PASSWORD_PATTERN, HTTPPasswordWrongPattern)
+            pattern=(MEMBER_PASSWORD_PATTERN, HTTPPasswordWrongPattern)
         )
     )
     @commit
     def create(self):
-        user_title_check = DBSession.query(Member) \
+        member_title_check = DBSession.query(Member) \
             .filter(Member.title == context.form.get('title')) \
             .one_or_none()
-        if user_title_check is not None:
+        if member_title_check is not None:
             raise StatusRepetitiveTitle()
 
-        user_email_check = DBSession.query(Member) \
+        member_email_check = DBSession.query(Member) \
             .filter(Member.email == context.form.get('email')) \
             .one_or_none()
-        if user_email_check is not None:
+        if member_email_check is not None:
             raise StatusRepetitiveEmail()
 
-        user = Member()
-        user.update_from_request()
-        DBSession.add(user)
-        principal = user.create_jwt_principal()
+        member = Member()
+        member.update_from_request()
+        DBSession.add(member)
+        principal = member.create_jwt_principal()
         context.application.__authenticator__.setup_response_headers(principal)
-        return user
+        return member
 
     @authorize
     @json
     def get(self, id):
         id = int_or_notfound(id)
-        user = DBSession.query(Member).get(id)
-        if user is None:
+        member = DBSession.query(Member).get(id)
+        if member is None:
             raise HTTPNotFound()
 
-        return user
+        return member
 
     @authorize
     @json
     @Member.expose
     def list(self):
-        users = DBSession.query(Member)
-        return users
+        members = DBSession.query(Member)
+        return members
 
     @authorize
     @json
@@ -112,48 +112,48 @@ class MemberController(ModelRestController):
         ),
         email=dict(
             not_none=StatusEmailIsNull,
-            pattern=(USER_EMAIL_PATTERN, StatusInvalidEmailFormat),
+            pattern=(MEMBER_EMAIL_PATTERN, StatusInvalidEmailFormat),
         ),
     )
     @commit
     def update(self, id):
         id = int_or_notfound(id)
-        current_user_id = context.identity.payload['id']
-        if id != current_user_id:
+        current_member_id = context.identity.payload['id']
+        if id != current_member_id:
             raise HTTPForbidden()
 
-        user = DBSession.query(Member) \
+        member = DBSession.query(Member) \
             .filter(Member.id == id) \
             .one_or_none()
-        if user is None:
+        if member is None:
             raise HTTPNotFound()
 
-        user_title_check = DBSession.query(Member) \
+        member_title_check = DBSession.query(Member) \
             .filter(Member.id != id) \
             .filter(Member.title == context.form.get('title')) \
             .one_or_none()
-        if user_title_check is not None:
+        if member_title_check is not None:
             raise StatusRepetitiveTitle()
 
-        user_email_check = DBSession.query(Member) \
+        member_email_check = DBSession.query(Member) \
             .filter(Member.id != id) \
             .filter(Member.email == context.form.get('email')) \
             .one_or_none()
-        if user_email_check is not None:
+        if member_email_check is not None:
             raise StatusRepetitiveEmail()
 
-        user.update_from_request()
-        return user
+        member.update_from_request()
+        return member
 
     @authorize
     @json
     @commit
     def delete(self, id):
         id = int_or_notfound(id)
-        user = DBSession.query(Member).get(id)
-        if user is None:
+        member = DBSession.query(Member).get(id)
+        if member is None:
             raise HTTPNotFound()
 
-        DBSession.delete(user)
-        return user
+        DBSession.delete(member)
+        return member
 
