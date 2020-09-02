@@ -2,108 +2,108 @@ from datetime import datetime
 
 from restfulpy.orm import DBSession
 
-from witch.models.user import User
+from witch.models.member import Member
 
 
 def insert():
-    user1 = User(
-        title='mock user1',
-        first_name='user1',
-        last_name='family user1',
+    member1 = Member(
+        title='mock member1',
+        first_name='member1',
+        last_name='family member1',
         birth_date=datetime(1, 1, 1),
-        email='user1@msn.com',
+        email='member1@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user1)
+    DBSession.add(member1)
 
-    user2 = User(
-        title='mock user2',
-        first_name='user2',
-        last_name='family user2',
+    member2 = Member(
+        title='mock member2',
+        first_name='member2',
+        last_name='family member2',
         birth_date=datetime(2000, 5, 2),
-        email='user2@msn.com',
+        email='member2@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user2)
+    DBSession.add(member2)
 
-    user3 = User(
-        title='mock user3',
-        first_name='user3',
-        last_name='family user3',
+    member3 = Member(
+        title='mock member3',
+        first_name='member3',
+        last_name='family member3',
         birth_date=datetime(2000, 5, 2),
-        email='user3@msn.com',
+        email='member3@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user3)
+    DBSession.add(member3)
 
-    user4 = User(
-        title='mock user4',
-        first_name='user4',
-        last_name='family user4',
+    member4 = Member(
+        title='mock member4',
+        first_name='member4',
+        last_name='family member4',
         birth_date=datetime(2000, 5, 2),
-        email='user4@msn.com',
+        email='member4@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user4)
+    DBSession.add(member4)
 
-    user5 = User(
-        title='mock user5',
-        first_name='user5',
-        last_name='family user5',
+    member5 = Member(
+        title='mock member5',
+        first_name='member5',
+        last_name='family member5',
         birth_date=datetime(2000, 5, 2),
-        email='user5@msn.com',
+        email='member5@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user5)
+    DBSession.add(member5)
 
-    user6 = User(
-        title='mock user6',
-        first_name='user6',
-        last_name='family user6',
+    member6 = Member(
+        title='mock member6',
+        first_name='member6',
+        last_name='family member6',
         birth_date=datetime(2000, 5, 2),
-        email='user6@msn.com',
+        email='member6@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user6)
+    DBSession.add(member6)
 
-    user7 = User(
-        title='mock user7',
-        first_name='user7',
-        last_name='family user7',
+    member7 = Member(
+        title='mock member7',
+        first_name='member7',
+        last_name='family member7',
         birth_date=datetime(2000, 5, 2),
-        email='user7@msn.com',
+        email='member7@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user7)
+    DBSession.add(member7)
 
-    user8 = User(
-        title='mock user8',
-        first_name='user8',
-        last_name='family user8',
+    member8 = Member(
+        title='mock member8',
+        first_name='member8',
+        last_name='family member8',
         birth_date=datetime(2000, 5, 2),
-        email='user@msn.com',
+        email='member@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user8)
+    DBSession.add(member8)
 
-    user9 = User(
-        title='mock user9',
-        first_name='user9',
-        last_name='family user9',
+    member9 = Member(
+        title='mock member9',
+        first_name='member9',
+        last_name='family member9',
         birth_date=datetime(2000, 5, 2),
-        email='user9@msn.com',
+        email='member9@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user9)
+    DBSession.add(member9)
 
-    user10 = User(
-        title='mock user10',
-        first_name='user10',
-        last_name='family user10',
+    member10 = Member(
+        title='mock member10',
+        first_name='member10',
+        last_name='family member10',
         birth_date=datetime(2000, 5, 2),
-        email='user10@msn.com',
+        email='member10@msn.com',
         password='Abc123Rew',
     )
-    DBSession.add(user10)
+    DBSession.add(member10)
     DBSession.commit()
 

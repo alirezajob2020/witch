@@ -1,41 +1,41 @@
 from bddrest import status, response, when, given
 
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMember(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
         session = cls.create_session()
 
-        user1 = User(
+        member1 = Member(
             email='alireza@msn.com',
             title='alitk777',
             first_name='alirezaa2',
             last_name='tavakoli1',
             password='ABc123123',
         )
-        session.add(user1)
+        session.add(member1)
 
-        user2 = User(
+        member2 = Member(
             email='alireza1@msn.com',
             title='alitk778',
             first_name='alizaaaaa',
             last_name='tavakoliiii',
             password='ABc1231234',
         )
-        session.add(user2)
+        session.add(member2)
 
-        user3 = User(
+        member3 = Member(
             email='alireza2@msn.com',
             title='alitk779',
             first_name='ali',
             last_name='tavakoliiii',
             password='ABc1231232',
         )
-        session.add(user3)
+        session.add(member3)
 
         session.commit()
 
@@ -43,8 +43,8 @@ class TestUser(LocalApplicationTestCase):
         self.login(email='alireza@msn.com', password='ABc123123')
 
         with self.given(
-                'get users list',
-                '/apiv1/users',
+                'get members list',
+                '/apiv1/members',
                 'LIST',
         ):
             assert status == 200

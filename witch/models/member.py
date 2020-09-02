@@ -12,8 +12,8 @@ from sqlalchemy import Integer, func, DateTime, String, \
 from sqlalchemy.orm import synonym, column_property
 
 
-class User(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
-    __tablename__ = 'user'
+class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
+    __tablename__ = 'member'
 
     id = Field(
         Integer,

@@ -1,6 +1,6 @@
 from bddrest import status, response, when, given
 
-from witch.models.user import User
+from witch.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
@@ -8,7 +8,7 @@ class TestToken(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
-        user = User(
+        member = Member(
             email='alireza@msn.com',
             title='alitk777',
             first_name='alirezaa',
@@ -16,7 +16,7 @@ class TestToken(LocalApplicationTestCase):
             password='ABc123123',
         )
         session = cls.create_session()
-        session.add(user)
+        session.add(member)
         session.commit()
 
     def test_create(self):
@@ -39,10 +39,10 @@ class TestToken(LocalApplicationTestCase):
             assert status == '400 Incorrect Email Or Password'
 
             when('Not exist email',
-                 json=given | dict(email='user@example.com'))
+                 json=given | dict(email='member@example.com'))
             assert status == '400 Incorrect Email Or Password'
 
-            when('Invalid email format', json=given | dict(email='user.com'))
+            when('Invalid email format', json=given | dict(email='member.com'))
             assert status == '400 Invalid Email Format'
 
             when('Trying to pass with empty form', json={})

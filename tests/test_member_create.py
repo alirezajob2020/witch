@@ -3,19 +3,19 @@ from bddrest import status, response, when, given
 from tests.helpers import LocalApplicationTestCase
 
 
-class TestUser(LocalApplicationTestCase):
+class TestMember(LocalApplicationTestCase):
 
     def test_create(self):
         title = 'alitk777'
         first_name = 'alireza'
         last_name = 'tavakoli'
         birth_date = '1970-2-2'
-        email = 'alitk777@msn.com'
+        email = 'ali@msn.com'
         password = 'Alitk123123'
 
         with self.given(
-                'Create a user',
-                '/apiv1/users',
+                'Create a member',
+                '/apiv1/members',
                 'CREATE',
                 json=dict(
                     title=title,
@@ -31,6 +31,7 @@ class TestUser(LocalApplicationTestCase):
             assert response.json['title'] == title
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
+            assert response.json['birthDate'] == birth_date
             assert response.json['email'] == email
 
             when('Trying to pass without form parameters', json={})
@@ -85,3 +86,4 @@ class TestUser(LocalApplicationTestCase):
                 json=given | dict(email='asd.com')
             )
             assert status == '400 Invalid Email Format'
+
