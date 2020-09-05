@@ -7,13 +7,9 @@ from restfulpy.principal import JWTPrincipal
 from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
     FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
-from sqlalchemy import Integer, func, DateTime, String, Enum, Unicode
+from sqlalchemy import Integer, func, DateTime, String, \
+    Unicode
 from sqlalchemy.orm import synonym, column_property
-
-genders = [
-    'male',
-    'female',
-]
 
 
 class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
@@ -54,14 +50,6 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         label='Last Name',
         example='tavakoli',
     )
-    gender = Field(
-        Enum(*genders, name='genders'),
-        python_type=str,
-        label='genders',
-        watermark='Choose Your Gender',
-        not_none=True,
-        required=True,
-    )
     birth_date = Field(
         DateTime,
         python_type=datetime,
@@ -95,7 +83,7 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         json='password',
         pattern=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+$',
         pattern_description='Password must include at least one uppercase, one'
-                            'lowercase and one number',
+            'lowercase and one number',
         example='ABCabc123',
         watermark=None,
         label='Password',
@@ -150,3 +138,4 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         hashed_pass = sha256()
         hashed_pass.update((password + self.password[:64]).encode('utf-8'))
         return self.password[64:] == hashed_pass.hexdigest()
+
