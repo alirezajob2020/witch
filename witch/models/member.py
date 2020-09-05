@@ -7,10 +7,14 @@ from restfulpy.principal import JWTPrincipal
 from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
     FilteringMixin, PaginationMixin
 from restfulpy.principal import JWTRefreshToken
-from sqlalchemy import Integer, func, DateTime, String, \
+from sqlalchemy import Integer, func, DateTime, Enum, String, \
     Unicode
 from sqlalchemy.orm import synonym, column_property
 
+genders = [
+    'male',
+    'female',
+]
 
 class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     __tablename__ = 'member'
@@ -49,6 +53,14 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         readonly=False,
         label='Last Name',
         example='tavakoli',
+    )
+    gender = Field(
+        Enum(*genders, name='genders'),
+        python_type=str,
+        label='genders',
+        watermark='Choose Your Gender',
+        not_none=True,
+        required=True,
     )
     email = Field(
         String,

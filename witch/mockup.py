@@ -10,6 +10,7 @@ def insert():
         title='mock member1',
         first_name='member1',
         last_name='family member1',
+        gender='male',
         email='member1@msn.com',
         password='Abc123Rew',
     )
@@ -19,6 +20,7 @@ def insert():
         title='mock member2',
         first_name='member2',
         last_name='family member2',
+        gender='male',
         email='member2@msn.com',
         password='Abc123Rew',
     )
@@ -28,6 +30,7 @@ def insert():
         title='mock member3',
         first_name='member3',
         last_name='family member3',
+        gender='male',
         email='member3@msn.com',
         password='Abc123Rew',
     )
@@ -37,6 +40,7 @@ def insert():
         title='mock member4',
         first_name='member4',
         last_name='family member4',
+        gender='male',
         email='member4@msn.com',
         password='Abc123Rew',
     )
@@ -46,6 +50,8 @@ def insert():
         title='mock member5',
         first_name='member5',
         last_name='family member5',
+        gender='male',
+        birth_date=datetime(2000, 5, 2),
         email='member5@msn.com',
         password='Abc123Rew',
     )
@@ -55,6 +61,7 @@ def insert():
         title='mock member6',
         first_name='member6',
         last_name='family member6',
+        gender='male',
         email='member6@msn.com',
         password='Abc123Rew',
     )
@@ -64,6 +71,7 @@ def insert():
         title='mock member7',
         first_name='member7',
         last_name='family member7',
+        gender='male',
         email='member7@msn.com',
         password='Abc123Rew',
     )
@@ -73,6 +81,7 @@ def insert():
         title='mock member8',
         first_name='member8',
         last_name='family member8',
+        gender='male',
         email='member@msn.com',
         password='Abc123Rew',
     )
@@ -82,6 +91,7 @@ def insert():
         title='mock member9',
         first_name='member9',
         last_name='family member9',
+        gender='male',
         email='member9@msn.com',
         password='Abc123Rew',
     )
@@ -91,6 +101,7 @@ def insert():
         title='mock member10',
         first_name='member10',
         last_name='family member10',
+        gender='male',
         email='member10@msn.com',
         password='Abc123Rew',
     )
