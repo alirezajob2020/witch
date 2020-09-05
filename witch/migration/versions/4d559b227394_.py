@@ -33,3 +33,4 @@ def downgrade():
     op.drop_column('member', 'gender')
     op.execute("DROP TYPE member_gender;")
 
+
