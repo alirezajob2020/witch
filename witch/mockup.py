@@ -51,7 +51,6 @@ def insert():
         first_name='member5',
         last_name='family member5',
         gender='male',
-        birth_date=datetime(2000, 5, 2),
         email='member5@msn.com',
         password='Abc123Rew',
     )
