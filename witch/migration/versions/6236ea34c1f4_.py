@@ -25,3 +25,4 @@ def downgrade():
     op.rename_table('member', 'user')
     op.execute('ALTER SEQUENCE member_id_seq RENAME TO user_id_seq')
 
+
