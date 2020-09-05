@@ -17,7 +17,7 @@ depends_on = None
 
 def upgrade():
     op.execute("CREATE TYPE member_gender AS ENUM ('male', 'female');")
-    op.execute("CREATE TYPE member_gender AS ENUM ('male', 'female');")
+
     op.add_column(
         'member',
         sa.Column(
