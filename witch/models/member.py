@@ -57,10 +57,12 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     gender = Field(
         Enum(*genders, name='genders'),
         python_type=str,
-        label='genders',
-        watermark='Choose Your Gender',
-        not_none=True,
+        not_none=False,
         required=True,
+        readonly=False,
+        label='gender',
+        watermark='Choose Your Gender',
+        example='male',
     )
     email = Field(
         String,
