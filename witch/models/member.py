@@ -15,10 +15,7 @@ genders = [
     'male',
     'female',
 ]
-<<<<<<< HEAD
 
-=======
->>>>>>> Adding new column gender to member model,realted migration file and revising basedata and mockup files
 
 class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     __tablename__ = 'member'
@@ -61,19 +58,12 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     gender = Field(
         Enum(*genders, name='genders'),
         python_type=str,
-<<<<<<< HEAD
         not_none=False,
         required=True,
         readonly=False,
         label='gender',
         watermark='Choose Your Gender',
         example='male',
-=======
-        label='genders',
-        watermark='Choose Your Gender',
-        not_none=True,
-        required=True,
->>>>>>> Adding new column gender to member model,realted migration file and revising basedata and mockup files
     )
     email = Field(
         String,
