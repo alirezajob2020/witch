@@ -8,7 +8,6 @@ Create Date: 2020-09-05 16:44:44.413774
 from alembic import op
 import sqlalchemy as sa
 
-
 # revision identifiers, used by Alembic.
 revision = '4d559b227394'
 down_revision = '4ce3bd840d5a'
@@ -33,5 +32,4 @@ def upgrade():
 def downgrade():
     op.drop_column('member', 'gender')
     op.execute("DROP TYPE member_gender;")
-
 
