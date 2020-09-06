@@ -38,9 +38,6 @@ class MemberController(ModelRestController):
         lastName=dict(
             not_none=StatusLastnameIsNull,
         ),
-        birthDate=dict(
-            pattern=(DATETIME_PATTERN, StatusInvalidDateFormat),
-        ),
         email=dict(
             required=StatusEmailIsRequired,
             not_none=StatusEmailIsNull,
@@ -106,9 +103,6 @@ class MemberController(ModelRestController):
         ),
         lastName=dict(
             not_none=StatusLastnameIsNull,
-        ),
-        birthDate=dict(
-            pattern=(DATETIME_PATTERN, StatusInvalidDateFormat),
         ),
         email=dict(
             not_none=StatusEmailIsNull,
