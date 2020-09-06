@@ -10,6 +10,7 @@ def insert():
         title='GOD',
         first_name='god',
         last_name='godian',
+        gender='male',
         email='god@example.com',
         password='Abc123Rew',
     )
@@ -19,6 +20,7 @@ def insert():
         title='member1',
         first_name='member1',
         last_name='family member1',
+        gender='male',
         email='member1@example.com',
         password='Abc123Rew',
     )
@@ -28,6 +30,7 @@ def insert():
         title='member2',
         first_name='member2',
         last_name='family member1',
+        gender='male',
         email='member2@example.com',
         password='Abc123Rew',
     )
@@ -37,6 +40,7 @@ def insert():
         title='member3',
         first_name='member3',
         last_name='family member3',
+        gender='male',
         email='member3@example.com',
         password='Abc123Rew',
     )
@@ -46,6 +50,7 @@ def insert():
         title='member4',
         first_name='member4',
         last_name='family member4',
+        gender='male',
         email='member4@example.com',
         password='Abc123Rew',
     )
@@ -55,6 +60,7 @@ def insert():
         title='member5',
         first_name='member5',
         last_name='family member5',
+        gender='male',
         email='member5@example.com',
         password='Abc123Rew',
     )
@@ -64,6 +70,7 @@ def insert():
         title='member6',
         first_name='member6',
         last_name='family member6',
+        gender='male',
         email='member6@example.com',
         password='Abc123Rew',
     )
@@ -73,6 +80,7 @@ def insert():
         title='member7',
         first_name='member7',
         last_name='family member7',
+        gender='male',
         email='member7@example.com',
         password='Abc123Rew',
     )
@@ -82,6 +90,7 @@ def insert():
         title='member8',
         first_name='member8',
         last_name='family member8',
+        gender='male',
         email='member8@example.com',
         password='Abc123Rew',
     )
@@ -91,6 +100,7 @@ def insert():
         title='member9',
         first_name='member9',
         last_name='family member9',
+        gender='male',
         email='member9@example.com',
         password='Abc123Rew',
     )

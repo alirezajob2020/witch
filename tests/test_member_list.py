@@ -15,6 +15,7 @@ class TestMember(LocalApplicationTestCase):
             title='alitk777',
             first_name='alirezaa2',
             last_name='tavakoli1',
+            gender='male',
             password='ABc123123',
         )
         session.add(member1)
@@ -24,6 +25,7 @@ class TestMember(LocalApplicationTestCase):
             title='alitk778',
             first_name='alizaaaaa',
             last_name='tavakoliiii',
+            gender='male',
             password='ABc1231234',
         )
         session.add(member2)
@@ -33,6 +35,7 @@ class TestMember(LocalApplicationTestCase):
             title='alitk779',
             first_name='ali',
             last_name='tavakoliiii',
+            gender='male',
             password='ABc1231232',
         )
         session.add(member3)

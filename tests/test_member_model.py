@@ -14,6 +14,7 @@ def test_age(db):
         email='alitk@gmail.com',
         first_name='ali',
         last_name='tavakoli',
+        gender='male',
         password='Ali123',
     )
 

@@ -15,6 +15,7 @@ class TestMember(LocalApplicationTestCase):
             email='qq@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
+            gender='male',
             password='Abc123123',
         )
         session.add(cls.member1)
@@ -24,6 +25,7 @@ class TestMember(LocalApplicationTestCase):
             email='alireza@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
+            gender='male',
             password='Abc123123',
         )
         session.add(cls.member2)
@@ -35,6 +37,7 @@ class TestMember(LocalApplicationTestCase):
         title = 'wwqweqas'
         first_name = 'alireza'
         last_name = 'tk'
+        gender = 'male'
         email = 'alirezaaa@msn.com'
 
         with self.given(
@@ -45,6 +48,7 @@ class TestMember(LocalApplicationTestCase):
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
+                    gender=gender,
                     email=email,
                 ),
         ):

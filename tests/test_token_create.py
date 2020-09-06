@@ -13,6 +13,7 @@ class TestToken(LocalApplicationTestCase):
             title='alitk777',
             first_name='alirezaa',
             last_name='tavakoli',
+            gender='male',
             password='ABc123123',
         )
         session = cls.create_session()
