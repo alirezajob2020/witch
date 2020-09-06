@@ -15,6 +15,7 @@ class TestMember(LocalApplicationTestCase):
             email='qq@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
+            gender='male',
             password='Abc123123',
         )
         session.add(cls.member1)
@@ -24,6 +25,7 @@ class TestMember(LocalApplicationTestCase):
             email='alireza@msn.com',
             first_name='alirezaa',
             last_name='tavakoli',
+            gender='male',
             password='Abc123123',
         )
         session.add(cls.member2)
@@ -43,6 +45,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['email'] == self.member1.email
             assert response.json['firstName'] == self.member1.first_name
             assert response.json['lastName'] == self.member1.last_name
+            assert response.json['gender'] == self.member1.gender
 
             session = self.create_session()
             assert not session.query(Member) \

@@ -38,6 +38,10 @@ class MemberController(ModelRestController):
         lastName=dict(
             not_none=StatusLastnameIsNull,
         ),
+        gender=dict(
+            required=StatusGenderIsRequired,
+            not_none=StatusGenderIsNull,
+        ),
         email=dict(
             required=StatusEmailIsRequired,
             not_none=StatusEmailIsNull,
@@ -103,6 +107,9 @@ class MemberController(ModelRestController):
         ),
         lastName=dict(
             not_none=StatusLastnameIsNull,
+        ),
+        gender=dict(
+            not_none=StatusGenderIsNull,
         ),
         email=dict(
             not_none=StatusEmailIsNull,

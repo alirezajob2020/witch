@@ -9,6 +9,7 @@ class TestMember(LocalApplicationTestCase):
         title = 'alitk777'
         first_name = 'alireza'
         last_name = 'tavakoli'
+        gender = 'male'
         email = 'ali@msn.com'
         password = 'Alitk123123'
 
@@ -20,6 +21,7 @@ class TestMember(LocalApplicationTestCase):
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
+                    gender=gender,
                     email=email,
                     password=password,
                 ),
@@ -29,6 +31,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['title'] == title
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
+            assert response.json['gender'] == gender
             assert response.json['email'] == email
 
             when('Trying to pass without form parameters', json={})
@@ -65,6 +68,12 @@ class TestMember(LocalApplicationTestCase):
                 json=given | dict(lastName=None)
             )
             assert status == '400 lastname field is null'
+
+            when('Trying to pass empty gender', json=given - 'gender')
+            assert status == '400 gender field is Required'
+
+            when('Trying to pass null gender', json=given | dict(gender=None))
+            assert status == '400 gender field is null'
 
             when('Trying to pass null title', json=given | dict(email=None))
             assert status == '400 email is null'

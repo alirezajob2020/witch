@@ -841,6 +841,14 @@ class StatusLastnameIsNull(HTTPKnownStatus):
     status = '400 lastname field is null'
 
 
+class StatusGenderIsNull(HTTPKnownStatus):
+    status = '400 gender field is null'
+
+
+class StatusGenderIsRequired(HTTPKnownStatus):
+    status = '400 gender field is Required'
+
+
 class StatusEmailIsNull(HTTPKnownStatus):
     status = '400 email is null'
 

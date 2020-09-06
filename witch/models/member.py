@@ -16,6 +16,7 @@ genders = [
     'female',
 ]
 
+
 class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
     __tablename__ = 'member'
 
