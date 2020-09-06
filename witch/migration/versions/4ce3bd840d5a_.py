@@ -1,4 +1,4 @@
-"""empty message
+"""Drop birthdate column
 
 Revision ID: 4ce3bd840d5a
 Revises: 6236ea34c1f4
