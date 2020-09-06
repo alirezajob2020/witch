@@ -9,7 +9,6 @@ class TestMember(LocalApplicationTestCase):
         title = 'alitk777'
         first_name = 'alireza'
         last_name = 'tavakoli'
-        birth_date = '1970-2-2'
         email = 'ali@msn.com'
         password = 'Alitk123123'
 
@@ -21,7 +20,6 @@ class TestMember(LocalApplicationTestCase):
                     title=title,
                     firstName=first_name,
                     lastName=last_name,
-                    birthDate=birth_date,
                     email=email,
                     password=password,
                 ),
@@ -31,7 +29,6 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['title'] == title
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
-            assert response.json['birthDate'] == birth_date
             assert response.json['email'] == email
 
             when('Trying to pass without form parameters', json={})
@@ -68,12 +65,6 @@ class TestMember(LocalApplicationTestCase):
                 json=given | dict(lastName=None)
             )
             assert status == '400 lastname field is null'
-
-            when(
-                'Trying to pass wrong date',
-                json=given | dict(birthDate='30-50-40')
-            )
-            assert status == '400 Invalid Date Format'
 
             when('Trying to pass null title', json=given | dict(email=None))
             assert status == '400 email is null'

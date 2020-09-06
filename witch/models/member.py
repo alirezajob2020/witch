@@ -50,22 +50,6 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         label='Last Name',
         example='tavakoli',
     )
-    birth_date = Field(
-        DateTime,
-        python_type=datetime,
-        not_none=False,
-        required=False,
-        readonly=False,
-        nullable=True,
-        pattern=r'^(\d{4})-(0[1-9]|1[012]|[1-9])-(0[1-9]|[12]\d{1}|3[01]|[1-9])',
-        pattern_description='ISO format like "yyyy-mm-dd" is valid',
-        watermark='Lorem Ipsum',
-        label='Birth Date',
-        example='2018-02-02 00:00:00',
-    )
-    age = column_property(
-        ((func.date(func.now()) - birth_date.label('age')) / 365)
-    )
     email = Field(
         String,
         unique=True,
