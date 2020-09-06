@@ -1,4 +1,4 @@
-"""Drop birthdate column
+"""Drop birthdate column from member model
 
 Revision ID: 4ce3bd840d5a
 Revises: 6236ea34c1f4
@@ -21,5 +21,13 @@ def upgrade():
 
 
 def downgrade():
-    op.add_column('member', sa.Column('birth_date', postgresql.TIMESTAMP(), autoincrement=False, nullable=True))
+    op.add_column(
+        'member',
+        sa.Column(
+            'birth_date',
+            postgresql.TIMESTAMP(),
+            autoincrement=False,
+            nullable=True,
+        )
+    )
 
