@@ -11,7 +11,7 @@ from sqlalchemy import Integer, func, DateTime, Enum, String, \
     Unicode
 from sqlalchemy.orm import synonym, column_property
 
-member_gender = [
+genders = [
     'male',
     'female',
     'other',
@@ -57,7 +57,7 @@ class Member(DeclarativeBase, OrderingMixin, FilteringMixin, PaginationMixin):
         example='tavakoli',
     )
     gender = Field(
-        Enum(*member_gender, name='member_gender'),
+        Enum(*genders, name='genders'),
         python_type=str,
         not_none=False,
         required=True,
