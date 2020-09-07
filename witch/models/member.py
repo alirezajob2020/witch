@@ -14,6 +14,7 @@ from sqlalchemy.orm import synonym, column_property
 member_gender = [
     'male',
     'female',
+    'other',
 ]
 
 
