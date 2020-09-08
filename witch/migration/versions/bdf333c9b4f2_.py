@@ -8,6 +8,9 @@ Create Date: 2020-09-08 15:02:44.524685
 from alembic import op
 import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
+from sqlalchemy import orm
+
+from witch.models.member import Member
 
 # revision identifiers, used by Alembic.
 revision = 'bdf333c9b4f2'
@@ -17,10 +20,23 @@ depends_on = None
 
 
 def upgrade():
-    op.execute("UPDATE member SET gender = 'male' WHERE (member.id % 2) = 0 ;")
-    op.execute("UPDATE member SET gender = 'female' WHERE (member.id % 2) = 1;")
+    bind = op.get_bind()
+    session = orm.Session(bind=bind)
+    members = session.query(Member)
+    for m in members:
+        if m.id % 2 == 0:
+            m.gender = 'male'
+        else:
+            m.gender = 'female'
+
+    session.commit()
 
 
 def downgrade():
-    op.execute("UPDATE member SET gender = 'male';")
+    bind = op.get_bind()
+    session = orm.Session(bind=bind)
+    members = session.query(Member)
+    for m in members:
+        m.gender = 'male'
 
+    session.commit()
