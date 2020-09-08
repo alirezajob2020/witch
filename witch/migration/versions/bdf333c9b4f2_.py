@@ -23,11 +23,11 @@ def upgrade():
     bind = op.get_bind()
     session = orm.Session(bind=bind)
     members = session.query(Member)
-    for m in members:
-        if m.id % 2 == 0:
-            m.gender = 'male'
+    for member in members:
+        if member.id % 2 == 0:
+            member.gender = 'male'
         else:
-            m.gender = 'female'
+            member.gender = 'female'
 
     session.commit()
 
@@ -36,7 +36,8 @@ def downgrade():
     bind = op.get_bind()
     session = orm.Session(bind=bind)
     members = session.query(Member)
-    for m in members:
-        m.gender = 'male'
+    for member in members:
+        member.gender = 'male'
 
     session.commit()
+    
