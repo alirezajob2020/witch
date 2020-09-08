@@ -1,4 +1,4 @@
-"""set gender column based on member id
+"""Set gender column based on member id
 
 Revision ID: bdf333c9b4f2
 Revises: a952771a97dc
